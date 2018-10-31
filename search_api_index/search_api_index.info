@@ -1,0 +1,10 @@
+name = Search Index
+description = All Search Indexes
+core = 7.x
+package = Features
+version = 7.x-1.0
+features[features_api][] = api:2
+features[search_api_index][] = default_node_index
+features[search_api_index][] = node_index
+features_exclude[dependencies][entity] = entity
+features_exclude[dependencies][search_api] = search_api

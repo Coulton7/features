@@ -1,0 +1,10 @@
+name = Search Server
+description = All Search Servers
+core = 7.x
+package = Features
+version = 7.x-1.0
+features[features_api][] = api:2
+features[search_api_server][] = local_search_nodes
+features_exclude[dependencies][entity] = entity
+features_exclude[dependencies][search_api] = search_api
+features_exclude[dependencies][search_api_db] = search_api_db

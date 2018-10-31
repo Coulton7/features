@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Search Server feature.
+ */
+
+include_once 'search_api_server.features.inc';

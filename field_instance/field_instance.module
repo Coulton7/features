@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field Instances feature.
+ */
+
+include_once 'field_instance.features.inc';

@@ -1,0 +1,16 @@
+name = Entity Rule Setting
+description = All content types on the site
+core = 7.x
+package = Features
+version = 7.x-1.0
+features[entity_rule_setting][] = 2
+features[entity_rule_setting][] = 3
+features[entity_rule_setting][] = 4
+features[entity_rule_setting][] = 5
+features[entity_rule_setting][] = 6
+features[entity_rule_setting][] = 7
+features[entity_rule_setting][] = 8
+features[features_api][] = api:2
+features_exclude[dependencies][entity] = entity
+features_exclude[dependencies][entity_rules] = entity_rules
+no autodetect = 1

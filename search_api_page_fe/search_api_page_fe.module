@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Search API Page feature.
+ */
+
+include_once 'search_api_page_fe.features.inc';

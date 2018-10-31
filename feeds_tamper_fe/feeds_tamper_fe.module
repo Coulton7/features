@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feeds Tamper feature.
+ */
+
+include_once 'feeds_tamper_fe.features.inc';

@@ -1,0 +1,17 @@
+name = Text Formats
+description = All Formats that can be used on content bodies
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = filter
+features[features_api][] = api:2
+features[filter][] = ck_editor
+features[filter][] = filtered_html
+features[filter][] = full_html
+features[filter][] = php_code
+features[filter][] = plain_text
+features_exclude[dependencies][features] = features
+features_exclude[dependencies][media_wysiwyg] = media_wysiwyg
+features_exclude[dependencies][php] = php
+features_exclude[dependencies][social_content_twitter] = social_content_twitter
+features_exclude[dependencies][token_filter] = token_filter

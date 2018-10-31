@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field Validation feature.
+ */
+
+include_once 'field_validation_rule.features.inc';

@@ -1,0 +1,9 @@
+name = Search API Page
+description = All search pages created by search api
+core = 7.x
+package = Features
+version = 7.x-1.0
+features[features_api][] = api:2
+features[search_api_page][] = search_page
+features_exclude[dependencies][entity] = entity
+features_exclude[dependencies][search_api_page] = search_api_page
