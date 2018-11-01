@@ -1,5 +1,5 @@
 name = Media WYSIWYG
-description = WYSIWYG settings
+description = Media WYSIWYG options
 core = 7.x
 package = Features
 version = 7.x-1.0
