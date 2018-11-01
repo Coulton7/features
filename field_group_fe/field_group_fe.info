@@ -1,5 +1,5 @@
 name = Field Group
-description = All Groups in Fields mainly used for cols
+description = All field groups
 core = 7.x
 package = Features
 version = 7.x-1.0
