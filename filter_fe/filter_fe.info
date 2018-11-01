@@ -1,5 +1,5 @@
 name = Text Formats
-description = All Formats that can be used on content bodies
+description = All text formats for content bodies
 core = 7.x
 package = Features
 version = 7.x-1.0
