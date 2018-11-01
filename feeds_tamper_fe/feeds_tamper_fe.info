@@ -1,4 +1,4 @@
-name = Feeds Tamper
+name = feeds tamper
 core = 7.x
 package = Features
 version = 7.x-1.0
