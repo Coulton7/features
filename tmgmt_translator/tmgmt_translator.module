@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the tmgmt_translator feature.
+ */
+
+include_once 'tmgmt_translator.features.inc';
