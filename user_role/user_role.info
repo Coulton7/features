@@ -1,0 +1,14 @@
+name = user_role
+description = All user roles
+core = 7.x
+package = Features
+version = 7.x-1.1
+features[features_api][] = api:2
+features[user_role][] = HR user
+features[user_role][] = administrator
+features[user_role][] = contributor user
+features[user_role][] = editor user
+features[user_role][] = moderator user
+features[user_role][] = publisher user
+features[user_role][] = translator user
+features_exclude[dependencies][features] = features
