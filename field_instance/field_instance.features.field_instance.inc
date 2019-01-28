@@ -854,7 +854,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 32,
+      'weight' => 30,
     ),
   );
 
@@ -862,7 +862,12 @@ function field_instance_field_default_field_instances() {
   // 'entityform-contact_form-field_current_page_title'.
   $field_instances['entityform-contact_form-field_current_page_title'] = array(
     'bundle' => 'contact_form',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '[current-page:title]',
+      ),
+    ),
+    'default_value_function' => 'field_default_token_default_value_function',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -887,7 +892,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 38,
+      'weight' => 37,
     ),
   );
 
@@ -919,7 +924,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 35,
+      'weight' => 34,
     ),
   );
 
@@ -959,7 +964,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 29,
     ),
   );
 
@@ -1032,14 +1037,19 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 34,
+      'weight' => 33,
     ),
   );
 
   // Exported field_instance: 'entityform-contact_form-field_hidden_form_url'.
   $field_instances['entityform-contact_form-field_hidden_form_url'] = array(
     'bundle' => 'contact_form',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '[current-page:url]',
+      ),
+    ),
+    'default_value_function' => 'field_default_token_default_value_function',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1064,14 +1074,18 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 33,
+      'weight' => 32,
     ),
   );
 
   // Exported field_instance: 'entityform-contact_form-field_hubspot_form_id'.
   $field_instances['entityform-contact_form-field_hubspot_form_id'] = array(
     'bundle' => 'contact_form',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '99f253ea-3c06-4189-8674-524c5080a092',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1096,7 +1110,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 37,
+      'weight' => 36,
     ),
   );
 
@@ -1140,15 +1154,45 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-contact_form-field_phone'.
+  $field_instances['entityform-contact_form-field_phone'] = array(
+    'bundle' => 'contact_form',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 29,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_phone',
+    'label' => 'Telephone',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 31,
+    ),
+  );
+
   // Exported field_instance: 'entityform-contact_form-field_question'.
   $field_instances['entityform-contact_form-field_question'] = array(
     'bundle' => 'contact_form',
-    'default_value' => array(
-      0 => array(
-        'value' => 'Question	[entityform:field_question]',
-      ),
-    ),
-    'default_value_function' => 'field_default_token_default_value_function',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1176,7 +1220,7 @@ function field_instance_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 36,
+      'weight' => 35,
     ),
   );
 
@@ -1251,6 +1295,39 @@ function field_instance_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-content_gate-field_consent'.
+  $field_instances['entityform-content_gate-field_consent'] = array(
+    'bundle' => 'content_gate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_consent',
+    'label' => 'I agree to receive other communications from AESSEAL.',
+    'required' => FALSE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 11,
     ),
   );
 
@@ -1453,6 +1530,46 @@ function field_instance_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-content_gate-field_legitimateinterest'.
+  $field_instances['entityform-content_gate-field_legitimateinterest'] = array(
+    'bundle' => 'content_gate',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_legitimateinterest',
+    'label' => 'I agree to allow AESSEAL to store and process my personal data.',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 9,
     ),
   );
 
@@ -5783,6 +5900,37 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-tmgmt_translation_skills'.
+  $field_instances['user-user-tmgmt_translation_skills'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'tmgmt_language_combination',
+        'settings' => array(),
+        'type' => 'tmgmt_language_combination_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'tmgmt_translation_skills',
+    'label' => 'Translation skills',
+    'required' => FALSE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'tmgmt_language_combination',
+      'settings' => array(),
+      'type' => 'tmgmt_language_combination_default',
+      'weight' => 13,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Add the Brochure link from aesseal.com e.g https://www.aesseal.com/en/resources/product-brochure/ckd');
@@ -5812,6 +5960,8 @@ function field_instance_field_default_field_instances() {
   t('Flex-image');
   t('Form Display');
   t('Hidden Form URL');
+  t('I agree to allow AESSEAL to store and process my personal data.');
+  t('I agree to receive other communications from AESSEAL.');
   t('Icon');
   t('Image');
   t('Industry');
@@ -5846,6 +5996,7 @@ function field_instance_field_default_field_instances() {
   t('To conform to the following API Plan Types ');
   t('Token country');
   t('Translation Notes');
+  t('Translation skills');
   t('Tweet link');
   t('Tweet media');
   t('Types');
