@@ -1,9 +1,0 @@
-name = Workflows
-description = All Workflows that have been made
-core = 7.x
-package = Features
-version = 7.x-1.0
-features[Workflow][] = node_content_workflow
-features[features_api][] = api:2
-features_exclude[dependencies][entity] = entity
-features_exclude[dependencies][workflow] = workflow
