@@ -1,0 +1,10 @@
+name = Workflow
+description = Workflow types created for the site
+core = 7.x
+package = Features
+version = 7.x-1.1
+features[Workflow][] = node_content_workflow
+features[features_api][] = api:2
+features_exclude[dependencies][entity] = entity
+features_exclude[dependencies][workflow] = workflow
+no autodetect = 1

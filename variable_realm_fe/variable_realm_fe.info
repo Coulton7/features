@@ -1,0 +1,17 @@
+name = Realm Variables
+description = All o the realm variables linked with the languages for Euro
+core = 7.x
+package = Features
+version = 7.x-1.1
+features[features_api][] = api:2
+features[variable_realm][] = global:default
+features[variable_realm][] = language:de
+features[variable_realm][] = language:en
+features[variable_realm][] = language:es
+features[variable_realm][] = language:fr
+features[variable_realm][] = language:it
+features[variable_realm][] = language:sv
+features[variable_realm][] = language:tr
+features_exclude[dependencies][i18n_variable] = i18n_variable
+features_exclude[dependencies][variable_realm] = variable_realm
+no autodetect = 1
