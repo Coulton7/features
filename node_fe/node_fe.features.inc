@@ -49,6 +49,14 @@ function node_fe_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'media' => array(
+      'name' => t('Media'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'news' => array(
       'name' => t('News'),
       'base' => 'node_content',

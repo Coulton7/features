@@ -180,6 +180,40 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'comment-comment_node_media-comment_body'.
+  $field_instances['comment-comment_node_media-comment_body'] = array(
+    'bundle' => 'comment_node_media',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'comment',
+    'field_name' => 'comment_body',
+    'label' => 'Comment',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 0,
+    ),
+  );
+
   // Exported field_instance: 'comment-comment_node_news-comment_body'.
   $field_instances['comment-comment_node_news-comment_body'] = array(
     'bundle' => 'comment_node_news',
@@ -778,6 +812,46 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'entityform-branch_disti_form-field_zendesk_country'.
+  $field_instances['entityform-branch_disti_form-field_zendesk_country'] = array(
+    'bundle' => 'branch_disti_form',
+    'default_value' => array(
+      0 => array(
+        'value' => '[system-user:location:country]',
+      ),
+    ),
+    'default_value_function' => 'field_default_token_default_value_function',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 44,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_zendesk_country',
+    'label' => 'Zendesk Country',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 57,
+    ),
+  );
+
   // Exported field_instance: 'entityform-contact_form-field_company'.
   $field_instances['entityform-contact_form-field_company'] = array(
     'bundle' => 'contact_form',
@@ -814,7 +888,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 32,
+      'weight' => 30,
     ),
   );
 
@@ -822,7 +896,12 @@ function field_instance_field_default_field_instances() {
   // 'entityform-contact_form-field_current_page_title'.
   $field_instances['entityform-contact_form-field_current_page_title'] = array(
     'bundle' => 'contact_form',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '[current-page:title]',
+      ),
+    ),
+    'default_value_function' => 'field_default_token_default_value_function',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -847,7 +926,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 38,
+      'weight' => 37,
     ),
   );
 
@@ -879,7 +958,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 35,
+      'weight' => 34,
     ),
   );
 
@@ -919,7 +998,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 29,
     ),
   );
 
@@ -992,14 +1071,19 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 34,
+      'weight' => 33,
     ),
   );
 
   // Exported field_instance: 'entityform-contact_form-field_hidden_form_url'.
   $field_instances['entityform-contact_form-field_hidden_form_url'] = array(
     'bundle' => 'contact_form',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '[current-page:url]',
+      ),
+    ),
+    'default_value_function' => 'field_default_token_default_value_function',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1024,14 +1108,18 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 33,
+      'weight' => 32,
     ),
   );
 
   // Exported field_instance: 'entityform-contact_form-field_hubspot_form_id'.
   $field_instances['entityform-contact_form-field_hubspot_form_id'] = array(
     'bundle' => 'contact_form',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '99f253ea-3c06-4189-8674-524c5080a092',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1056,7 +1144,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 37,
+      'weight' => 36,
     ),
   );
 
@@ -1100,15 +1188,45 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-contact_form-field_phone'.
+  $field_instances['entityform-contact_form-field_phone'] = array(
+    'bundle' => 'contact_form',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 29,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_phone',
+    'label' => 'Telephone',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 31,
+    ),
+  );
+
   // Exported field_instance: 'entityform-contact_form-field_question'.
   $field_instances['entityform-contact_form-field_question'] = array(
     'bundle' => 'contact_form',
-    'default_value' => array(
-      0 => array(
-        'value' => 'Question	[entityform:field_question]',
-      ),
-    ),
-    'default_value_function' => 'field_default_token_default_value_function',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1136,7 +1254,7 @@ function field_instance_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 36,
+      'weight' => 35,
     ),
   );
 
@@ -1211,6 +1329,39 @@ function field_instance_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-content_gate-field_consent'.
+  $field_instances['entityform-content_gate-field_consent'] = array(
+    'bundle' => 'content_gate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_consent',
+    'label' => 'I agree to receive other communications from AESSEAL.',
+    'required' => FALSE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 11,
     ),
   );
 
@@ -1413,6 +1564,46 @@ function field_instance_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-content_gate-field_legitimateinterest'.
+  $field_instances['entityform-content_gate-field_legitimateinterest'] = array(
+    'bundle' => 'content_gate',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_legitimateinterest',
+    'label' => 'I agree to allow AESSEAL to store and process my personal data.',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 9,
     ),
   );
 
@@ -1878,7 +2069,7 @@ function field_instance_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1978,7 +2169,7 @@ function field_instance_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2018,10 +2209,9 @@ function field_instance_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 1,
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2101,10 +2291,11 @@ function field_instance_field_default_field_instances() {
     'description' => 'You must put an Industry tag on the content in order to appear in the Applications Feed',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
+        'type' => 'i18n_taxonomy_term_reference_plain',
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2198,7 +2389,7 @@ function field_instance_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2245,7 +2436,7 @@ function field_instance_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'class' => '',
+          'class' => 'img-adaptive',
           'image_link' => '',
           'image_style' => '',
         ),
@@ -2313,7 +2504,7 @@ function field_instance_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2709,72 +2900,6 @@ function field_instance_field_default_field_instances() {
       ),
       'type' => 'workflow_default',
       'weight' => 9,
-    ),
-  );
-
-  // Exported field_instance: 'node-job_vacancies-field_careers_image'.
-  $field_instances['node-job_vacancies-field_careers_image'] = array(
-    'bundle' => 'job_vacancies',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'class' => '',
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 5,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_careers_image',
-    'label' => 'Careers Image',
-    'required' => 0,
-    'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 0,
-      'entity_translation_sync' => FALSE,
-      'file_directory' => 'fields/careers_image',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '1080x1080',
-      'min_resolution' => '',
-      'title_field' => 0,
-      'user_register_form' => FALSE,
-      'wysiwyg_insert' => 0,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'media',
-      'settings' => array(
-        'allowed_schemes' => array(
-          'private' => 0,
-          'public' => 'public',
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'document' => 0,
-          'image' => 'image',
-          'video' => 0,
-        ),
-        'browser_plugins' => array(
-          'media_default--media_browser_1' => 0,
-          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
-          'upload' => 'upload',
-        ),
-      ),
-      'type' => 'media_generic',
-      'weight' => 11,
     ),
   );
 
@@ -3762,6 +3887,160 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-media-body'.
+  $field_instances['node-media-body'] = array(
+    'bundle' => 'media',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Body',
+    'required' => FALSE,
+    'settings' => array(
+      'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-media-field_document'.
+  $field_instances['node-media-field_document'] = array(
+    'bundle' => 'media',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_document',
+    'label' => 'Click to Download',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => 'fields/field_document',
+      'file_extensions' => 'txt pdf',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-media-field_thumbnail'.
+  $field_instances['node-media-field_thumbnail'] = array(
+    'bundle' => 'media',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'class' => '',
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_thumbnail',
+    'label' => 'Thumbnail',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => 'fields/field_thumbnail',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+      'wysiwyg_insert' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'private' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'upload' => 0,
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'node-news-body'.
   $field_instances['node-news-body'] = array(
     'bundle' => 'news',
@@ -4388,7 +4667,7 @@ function field_instance_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 6,
+      'weight' => 1,
     ),
   );
 
@@ -4401,9 +4680,8 @@ function field_instance_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'hidden',
         'weight' => 3,
       ),
       'teaser' => array(
@@ -4430,7 +4708,7 @@ function field_instance_field_default_field_instances() {
         'name_as_title' => 1,
       ),
       'type' => 'workflow_default',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -4488,7 +4766,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -4496,7 +4774,7 @@ function field_instance_field_default_field_instances() {
   $field_instances['node-product_range-field_flex_image'] = array(
     'bundle' => 'product_range',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'This will add a banner image in the header space - This is only for custom image per page. Please avoid duplication of images and use the block system if shared across multiple pages.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -4531,23 +4809,69 @@ function field_instance_field_default_field_instances() {
       'min_resolution' => '',
       'title_field' => 1,
       'user_register_form' => FALSE,
+      'wysiwyg_insert' => 0,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
         ),
         'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
           'image' => 'image',
+          'video' => 0,
         ),
-        'browser_plugins' => array(),
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'upload' => 0,
+        ),
       ),
       'type' => 'media_generic',
       'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'node-product_range-field_product_categories'.
+  $field_instances['node-product_range-field_product_categories'] = array(
+    'bundle' => 'product_range',
+    'default_value' => NULL,
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_product_categories',
+    'label' => 'Product Categories',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
     ),
   );
 
@@ -4556,7 +4880,7 @@ function field_instance_field_default_field_instances() {
     'bundle' => 'product_range',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'This is for bullet pointed features. This will add a 50/50 column split on the page between the bullet points and product image.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4588,7 +4912,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -4618,7 +4942,7 @@ function field_instance_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_product_image',
-    'label' => 'Image',
+    'label' => 'Product Image',
     'required' => 0,
     'settings' => array(
       'alt_field' => 1,
@@ -4631,23 +4955,30 @@ function field_instance_field_default_field_instances() {
       'min_resolution' => '',
       'title_field' => 1,
       'user_register_form' => FALSE,
+      'wysiwyg_insert' => 0,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
         ),
         'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
           'image' => 'image',
+          'video' => 0,
         ),
-        'browser_plugins' => array(),
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'upload' => 0,
+        ),
       ),
       'type' => 'media_generic',
-      'weight' => 7,
+      'weight' => 1,
     ),
   );
 
@@ -4687,7 +5018,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -5620,7 +5951,7 @@ function field_instance_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -5690,7 +6021,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -5706,7 +6037,7 @@ function field_instance_field_default_field_instances() {
         'module' => 'social_profile_field',
         'settings' => array(),
         'type' => 'social_profile_field_icons',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'user',
@@ -5722,7 +6053,47 @@ function field_instance_field_default_field_instances() {
       'module' => 'social_profile_field',
       'settings' => array(),
       'type' => 'social_profile_field_default',
-      'weight' => 6,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_token_country'.
+  $field_instances['user-user-field_token_country'] = array(
+    'bundle' => 'user',
+    'default_value' => array(
+      0 => array(
+        'value' => '[user:field-user-location:location:country:0]',
+      ),
+    ),
+    'default_value_function' => 'field_default_token_default_value_function',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_token_country',
+    'label' => 'Token country',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
     ),
   );
 
@@ -5769,6 +6140,37 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-tmgmt_translation_skills'.
+  $field_instances['user-user-tmgmt_translation_skills'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'tmgmt_language_combination',
+        'settings' => array(),
+        'type' => 'tmgmt_language_combination_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'tmgmt_translation_skills',
+    'label' => 'Translation skills',
+    'required' => FALSE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'tmgmt_language_combination',
+      'settings' => array(),
+      'type' => 'tmgmt_language_combination_default',
+      'weight' => 13,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Add the Brochure link from aesseal.com e.g https://www.aesseal.com/en/resources/product-brochure/ckd');
@@ -5780,7 +6182,6 @@ function field_instance_field_default_field_instances() {
   t('Banner Image');
   t('Body');
   t('Brochure');
-  t('Careers Image');
   t('Check the box if this resource delivered by a Hubspot email. If the resource is downloaded from the site leave the box unchecked.');
   t('Click to Download');
   t('Comment');
@@ -5799,6 +6200,8 @@ function field_instance_field_default_field_instances() {
   t('Flex-image');
   t('Form Display');
   t('Hidden Form URL');
+  t('I agree to allow AESSEAL to store and process my personal data.');
+  t('I agree to receive other communications from AESSEAL.');
   t('Icon');
   t('Image');
   t('Industry');
@@ -5821,17 +6224,23 @@ function field_instance_field_default_field_instances() {
   t('Please us the tags to place the Tweet in the appropriate feed');
   t('Please use the tags to identify which feed you wish for the news story to appear on');
   t('Please use the tags to put the Instagram post in the appropriate feed');
+  t('Product Categories');
   t('Product Features');
+  t('Product Image');
   t('Question');
   t('Related Products ');
   t('Social Links');
   t('Tags');
   t('Telephone');
+  t('This is for bullet pointed features. This will add a 50/50 column split on the page between the bullet points and product image.');
+  t('This will add a banner image in the header space - This is only for custom image per page. Please avoid duplication of images and use the block system if shared across multiple pages.');
   t('Thumbnail');
   t('Title Text');
   t('Title text is used in the tool tip when a user hovers their mouse over the image. Adding title text makes it easier to understand the context of an image and improves usability.');
   t('To conform to the following API Plan Types ');
+  t('Token country');
   t('Translation Notes');
+  t('Translation skills');
   t('Tweet link');
   t('Tweet media');
   t('Types');

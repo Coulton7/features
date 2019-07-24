@@ -134,31 +134,6 @@ function field_base_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_careers_image'.
-  $field_bases['field_careers_image'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_careers_image',
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'image',
-    'settings' => array(
-      'default_image' => 1080,
-      'entity_translation_sync' => array(
-        0 => 'fid',
-      ),
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'image',
-  );
-
   // Exported field_base: 'field_company'.
   $field_bases['field_company'] = array(
     'active' => 1,
@@ -179,6 +154,32 @@ function field_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_consent'.
+  $field_bases['field_consent'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_consent',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'communications:[ {  value : false, subscriptionTypeId : 4926396 ]}',
+        1 => 'communications:[ {  value : true, subscriptionTypeId : 4926396 ]}',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
   );
 
   // Exported field_base: 'field_continent'.
@@ -1105,6 +1106,32 @@ function field_base_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_legitimateinterest'.
+  $field_bases['field_legitimateinterest'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_legitimateinterest',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'consentToProcess: false',
+        1 => 'consentToProcess: true',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_linkedin_external_id'.
   $field_bases['field_linkedin_external_id'] = array(
     'active' => 1,
@@ -1429,6 +1456,34 @@ function field_base_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_product_categories'.
+  $field_bases['field_product_categories'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_product_categories',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'product',
+          'parent' => 0,
+        ),
+      ),
+      'entity_translation_sync' => FALSE,
+      'options_list_callback' => 'i18n_taxonomy_allowed_values',
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_product_features'.
   $field_bases['field_product_features'] = array(
     'active' => 1,
@@ -1668,6 +1723,28 @@ function field_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'image',
+  );
+
+  // Exported field_base: 'field_token_country'.
+  $field_bases['field_token_country'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_token_country',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_translation_notes'.
@@ -1925,6 +2002,29 @@ function field_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'tmgmt_translation_skills'.
+  $field_bases['tmgmt_translation_skills'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'tmgmt_translation_skills',
+    'indexes' => array(
+      'language' => array(
+        0 => 'language_from',
+        1 => 'language_to',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'tmgmt_language_combination',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => 1,
+    ),
+    'translatable' => 0,
+    'type' => 'tmgmt_language_combination',
   );
 
   return $field_bases;
