@@ -268,8 +268,10 @@ function field_group_fe_field_group_info() {
       0 => 'body',
       1 => 'field_thumbnail',
       2 => 'field_document',
-      3 => 'field_api__plan_types',
-      4 => 'field_reference',
+      3 => 'field_industry',
+      4 => 'field_api__plan_types',
+      5 => 'field_reference',
+      6 => 'field_case_ref',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
