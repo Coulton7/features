@@ -272,6 +272,7 @@ function field_group_fe_field_group_info() {
       4 => 'field_api__plan_types',
       5 => 'field_reference',
       6 => 'field_case_ref',
+      7 => 'group_rowimages',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -520,6 +521,38 @@ function field_group_fe_field_group_info() {
     ),
   );
   $field_groups['group_col6right|node|product_range|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_colimages|node|case_studies|default';
+  $field_group->group_name = 'group_colimages';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'case_studies';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_rowimages';
+  $field_group->data = array(
+    'label' => 'collimages',
+    'weight' => '18',
+    'children' => array(
+      0 => 'field_product_image',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'collimages',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-colimages field-group-div col-sm-12',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'collapsible',
+    ),
+  );
+  $field_groups['group_colimages|node|case_studies|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1047,6 +1080,38 @@ function field_group_fe_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_rowimages|node|case_studies|default';
+  $field_group->group_name = 'group_rowimages';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'case_studies';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_col10';
+  $field_group->data = array(
+    'label' => 'row-images',
+    'weight' => '11',
+    'children' => array(
+      0 => 'group_colimages',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'row-images',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-rowimages field-group-div row',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'collapsible',
+    ),
+  );
+  $field_groups['group_rowimages|node|case_studies|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_row|comment|comment_node_article|form';
   $field_group->group_name = 'group_row';
   $field_group->entity_type = 'comment';
@@ -1516,10 +1581,12 @@ function field_group_fe_field_group_info() {
   t('col-sm-10');
   t('col6left');
   t('col6right');
+  t('collimages');
   t('row');
   t('row 1');
   t('row 1 col 1');
   t('row 1 col 2');
+  t('row-images');
   t('row1');
   t('workflow');
 

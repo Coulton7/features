@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * field_instance.features.field_instance.inc
+ * field_instances.features.field_instance.inc
  */
 
 /**
@@ -2054,7 +2054,7 @@ function field_instance_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 6,
+      'weight' => 8,
     ),
   );
 
@@ -2095,7 +2095,7 @@ function field_instance_field_default_field_instances() {
         'name_as_title' => 1,
       ),
       'type' => 'workflow_default',
-      'weight' => 16,
+      'weight' => 18,
     ),
   );
 
@@ -2107,11 +2107,11 @@ function field_instance_field_default_field_instances() {
     'description' => 'Add the related api plan, very useful for customers to continue product research. e.g http://www.aesseal.com/en/resources/api-plans/api-plan-54',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2153,7 +2153,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 10,
+      'weight' => 12,
     ),
   );
 
@@ -2169,7 +2169,7 @@ function field_instance_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 14,
+        'weight' => 15,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2194,7 +2194,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -2232,7 +2232,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 14,
+      'weight' => 16,
     ),
   );
 
@@ -2276,7 +2276,7 @@ function field_instance_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 11,
+      'weight' => 13,
     ),
   );
 
@@ -2319,7 +2319,7 @@ function field_instance_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 5,
+      'weight' => 7,
     ),
   );
 
@@ -2336,7 +2336,7 @@ function field_instance_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_plain',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2358,7 +2358,73 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 8,
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-case_studies-field_product_image'.
+  $field_instances['node-case_studies-field_product_image'] = array(
+    'bundle' => 'case_studies',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'class' => '',
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 15,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_product_image',
+    'label' => 'Case Study Products',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => 'fields/field_product_image',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '1080x1080',
+      'min_resolution' => '',
+      'title_field' => 1,
+      'user_register_form' => FALSE,
+      'wysiwyg_insert' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'private' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 0,
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 6,
     ),
   );
 
@@ -2374,7 +2440,7 @@ function field_instance_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 12,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2416,7 +2482,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 9,
+      'weight' => 11,
     ),
   );
 
@@ -2463,7 +2529,7 @@ function field_instance_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -2529,7 +2595,7 @@ function field_instance_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -2567,7 +2633,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 7,
+      'weight' => 9,
     ),
   );
 
@@ -3484,7 +3550,7 @@ function field_instance_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -3529,7 +3595,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -3576,7 +3642,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -3623,7 +3689,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -3681,14 +3747,179 @@ function field_instance_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
   // Exported field_instance: 'node-locations-field_location'.
   $field_instances['node-locations-field_location'] = array(
     'bundle' => 'locations',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'location_settings' => array(
+          'display' => array(
+            'hide' => array(
+              'additional' => 0,
+              'city' => 0,
+              'coords' => 0,
+              'country' => 0,
+              'country_name' => 0,
+              'email' => 0,
+              'locpick' => 0,
+              'map_link' => 0,
+              'name' => 0,
+              'phone' => 0,
+              'postal_code' => 0,
+              'province' => 0,
+              'province_name' => 0,
+              'street' => 0,
+            ),
+          ),
+          'form' => array(
+            'fields' => array(
+              'additional' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => '',
+                'weight' => 6,
+              ),
+              'city' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => 'Rotherham',
+                'weight' => 8,
+              ),
+              'country' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => 'gb',
+                'weight' => 14,
+              ),
+              'delete_location' => array(
+                'default' => FALSE,
+                'nodiff' => TRUE,
+              ),
+              'email' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => '',
+                'weight' => 25,
+              ),
+              'is_primary' => array(
+                'default' => 0,
+              ),
+              'latitude' => array(
+                'default' => 0,
+              ),
+              'lid' => array(
+                'default' => FALSE,
+              ),
+              'locpick' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => FALSE,
+                'nodiff' => TRUE,
+                'weight' => 20,
+              ),
+              'longitude' => array(
+                'default' => 0,
+              ),
+              'name' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => 'AESSEAL Headquarters',
+                'weight' => 2,
+              ),
+              'phone' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => '',
+                'weight' => 25,
+              ),
+              'postal_code' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => 'S60 1BZ',
+                'weight' => 12,
+              ),
+              'province' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => '',
+                'weight' => 10,
+                'widget' => 'autocomplete',
+              ),
+              're_geocode_location' => array(
+                'default' => FALSE,
+                'nodiff' => TRUE,
+              ),
+              'source' => array(
+                'default' => 0,
+              ),
+              'street' => array(
+                '#parents' => array(
+                  0 => 'field_location',
+                  1 => 'und',
+                  2 => 0,
+                ),
+                'collect' => 1,
+                'default' => 'Mill Close',
+                'weight' => 4,
+              ),
+            ),
+          ),
+        ),
+        'name' => '',
+        'street' => '',
+        'additional' => '',
+        'city' => '',
+        'province' => '',
+        'postal_code' => '',
+        'country' => 'xx',
+        'locpick' => array(
+          'user_latitude' => '',
+          'user_longitude' => '',
+        ),
+        'email' => '',
+        'phone' => '',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3727,7 +3958,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'location_cck',
       'settings' => array(),
       'type' => 'location',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -3772,7 +4003,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -3830,7 +4061,7 @@ function field_instance_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -3877,7 +4108,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -3924,7 +4155,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -6224,6 +6455,7 @@ function field_instance_field_default_field_instances() {
   t('Body');
   t('Brochure');
   t('Case Ref');
+  t('Case Study Products');
   t('Check the box if this resource delivered by a Hubspot email. If the resource is downloaded from the site leave the box unchecked.');
   t('Click to Download');
   t('Comment');
