@@ -1,10 +1,9 @@
 name = Realm Variables
-description = All of the realm variables linked with the languages for Euro
+description = All Realm Variables minus Global
 core = 7.x
 package = Features
-version = 7.x-1.2
+version = 7.x-1.3
 features[features_api][] = api:2
-features[variable_realm][] = global:default
 features[variable_realm][] = language:de
 features[variable_realm][] = language:en
 features[variable_realm][] = language:es
