@@ -21,7 +21,7 @@ function language_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'de',
-    'weight' => 0,
+    'weight' => -7,
   );
   // Exported language: en.
   $languages['en'] = array(
@@ -34,7 +34,7 @@ function language_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'en',
-    'weight' => 0,
+    'weight' => -10,
   );
   // Exported language: es.
   $languages['es'] = array(
@@ -47,7 +47,7 @@ function language_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'es',
-    'weight' => 0,
+    'weight' => -3,
   );
   // Exported language: fr.
   $languages['fr'] = array(
@@ -60,7 +60,7 @@ function language_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'fr',
-    'weight' => 0,
+    'weight' => -8,
   );
   // Exported language: it.
   $languages['it'] = array(
@@ -73,7 +73,33 @@ function language_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'it',
-    'weight' => 0,
+    'weight' => -6,
+  );
+  // Exported language: pl.
+  $languages['pl'] = array(
+    'language' => 'pl',
+    'name' => 'Polish',
+    'native' => 'Polski',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 0,
+    'formula' => '',
+    'domain' => '',
+    'prefix' => 'pl',
+    'weight' => -5,
+  );
+  // Exported language: ru.
+  $languages['ru'] = array(
+    'language' => 'ru',
+    'name' => 'Russian',
+    'native' => 'Русский',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 0,
+    'formula' => '',
+    'domain' => '',
+    'prefix' => 'ru',
+    'weight' => -4,
   );
   // Exported language: sv.
   $languages['sv'] = array(
@@ -86,7 +112,7 @@ function language_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'sv',
-    'weight' => 0,
+    'weight' => -2,
   );
   // Exported language: tr.
   $languages['tr'] = array(
@@ -99,7 +125,20 @@ function language_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'tr',
-    'weight' => 0,
+    'weight' => -1,
+  );
+  // Exported language: zh-hans.
+  $languages['zh-hans'] = array(
+    'language' => 'zh-hans',
+    'name' => 'Chinese, Simplified',
+    'native' => '简体中文',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 0,
+    'formula' => '',
+    'domain' => '',
+    'prefix' => 'zh-hans',
+    'weight' => -9,
   );
   return $languages;
 }
