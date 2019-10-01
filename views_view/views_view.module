@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the All Views feature.
+ * Code for the views_view feature.
  */
 
-include_once 'views_view.features.inc';
+include_once 'views_view_fe.features.inc';

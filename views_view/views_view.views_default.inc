@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * views_view.views_default.inc
+ * views_view_fe.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function views_view_views_default_views() {
+function views_view_fe_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -167,7 +167,7 @@ function views_view_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Case Studies';
-  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
+  $handler->display->display_options['css_class'] = 'row grey-gradient';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -175,8 +175,14 @@ function views_view_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'list-row';
+  $handler->display->display_options['style_plugin'] = 'masonry_views';
+  $handler->display->display_options['style_options']['row_class'] = 'col-xs-12 col-sm-6 col-md-4 col-lg-4';
+  $handler->display->display_options['style_options']['masonry_column_width_units'] = 'css';
+  $handler->display->display_options['style_options']['masonry_resizable'] = TRUE;
+  $handler->display->display_options['style_options']['masonry_animated'] = FALSE;
+  $handler->display->display_options['style_options']['masonry_fit_width'] = FALSE;
+  $handler->display->display_options['style_options']['masonry_rtl'] = FALSE;
+  $handler->display->display_options['style_options']['masonry_images_first'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
@@ -186,6 +192,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['type']['machine_name'] = TRUE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   /* Field: Content: Thumbnail */
   $handler->display->display_options['fields']['field_thumbnail']['id'] = 'field_thumbnail';
   $handler->display->display_options['fields']['field_thumbnail']['table'] = 'field_data_field_thumbnail';
@@ -193,9 +206,15 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_thumbnail']['label'] = '';
   $handler->display->display_options['fields']['field_thumbnail']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_thumbnail']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
 [field_thumbnail]
 <div class="black-fade">
-<a href=[path]><i class="fa fa-external-link text-vertical-center social-font" aria-hidden="true"></i></a>
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
 </div>
 </div>';
   $handler->display->display_options['fields']['field_thumbnail']['element_label_colon'] = FALSE;
@@ -203,7 +222,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_thumbnail']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
-    'class' => 'float-right',
+    'class' => 'img-adaptive',
   );
   /* Field: Content: social icon */
   $handler->display->display_options['fields']['field_social_icon']['id'] = 'field_social_icon';
@@ -215,7 +234,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_social_icon']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
-    'class' => '',
+    'class' => 'social-indicator',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -232,6 +251,8 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_industry']['table'] = 'field_data_field_industry';
   $handler->display->display_options['fields']['field_industry']['field'] = 'field_industry';
   $handler->display->display_options['fields']['field_industry']['label'] = '';
+  $handler->display->display_options['fields']['field_industry']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_industry']['element_class'] = 'social-body';
   $handler->display->display_options['fields']['field_industry']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_industry']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_industry']['settings'] = array(
@@ -242,6 +263,10 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_types']['table'] = 'field_data_field_types';
   $handler->display->display_options['fields']['field_types']['field'] = 'field_types';
   $handler->display->display_options['fields']['field_types']['label'] = '';
+  $handler->display->display_options['fields']['field_types']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_types']['element_class'] = 'social-body';
+  $handler->display->display_options['fields']['field_types']['element_label_type'] = 'p';
+  $handler->display->display_options['fields']['field_types']['element_label_class'] = 'lead';
   $handler->display->display_options['fields']['field_types']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_types']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_types']['settings'] = array(
@@ -252,26 +277,12 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_type'] = 'div';
+  $handler->display->display_options['fields']['body']['element_class'] = 'social-body';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '600',
-    'class' => '',
-  );
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_content_gate']['id'] = 'field_content_gate';
-  $handler->display->display_options['fields']['field_content_gate']['table'] = 'field_data_field_content_gate';
-  $handler->display->display_options['fields']['field_content_gate']['field'] = 'field_content_gate';
-  $handler->display->display_options['fields']['field_content_gate']['label'] = '';
-  $handler->display->display_options['fields']['field_content_gate']['element_label_colon'] = FALSE;
-  /* Field: Content: Related Products  */
-  $handler->display->display_options['fields']['field_reference']['id'] = 'field_reference';
-  $handler->display->display_options['fields']['field_reference']['table'] = 'field_data_field_reference';
-  $handler->display->display_options['fields']['field_reference']['field'] = 'field_reference';
-  $handler->display->display_options['fields']['field_reference']['label'] = '';
-  $handler->display->display_options['fields']['field_reference']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_reference']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_reference']['settings'] = array(
     'class' => '',
   );
   /* Field: Content: Country */
@@ -279,18 +290,10 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_country']['table'] = 'field_data_field_country';
   $handler->display->display_options['fields']['field_country']['field'] = 'field_country';
   $handler->display->display_options['fields']['field_country']['label'] = '';
+  $handler->display->display_options['fields']['field_country']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_country']['element_class'] = 'social-body';
   $handler->display->display_options['fields']['field_country']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_country']['settings'] = array(
-    'class' => '',
-  );
-  /* Field: Content: To conform to the following API Plan Types  */
-  $handler->display->display_options['fields']['field_api__plan_types']['id'] = 'field_api__plan_types';
-  $handler->display->display_options['fields']['field_api__plan_types']['table'] = 'field_data_field_api__plan_types';
-  $handler->display->display_options['fields']['field_api__plan_types']['field'] = 'field_api__plan_types';
-  $handler->display->display_options['fields']['field_api__plan_types']['label'] = '';
-  $handler->display->display_options['fields']['field_api__plan_types']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_api__plan_types']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_api__plan_types']['settings'] = array(
     'class' => '',
   );
   /* Sort criterion: Content: Post date */
@@ -320,26 +323,28 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
-  /* Filter criterion: Content: Has taxonomy term */
-  $handler->display->display_options['filters']['tid']['id'] = 'tid';
-  $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['filters']['tid']['field'] = 'tid';
-  $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
-  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Industry filter';
-  $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
-  $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
-  $handler->display->display_options['filters']['tid']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Has taxonomy term (translated) */
+  $handler->display->display_options['filters']['tid_i18n']['id'] = 'tid_i18n';
+  $handler->display->display_options['filters']['tid_i18n']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid_i18n']['field'] = 'tid_i18n';
+  $handler->display->display_options['filters']['tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['tid_i18n']['expose']['operator_id'] = 'tid_i18n_op';
+  $handler->display->display_options['filters']['tid_i18n']['expose']['label'] = 'Industry';
+  $handler->display->display_options['filters']['tid_i18n']['expose']['operator'] = 'tid_i18n_op';
+  $handler->display->display_options['filters']['tid_i18n']['expose']['identifier'] = 'tid_i18n';
+  $handler->display->display_options['filters']['tid_i18n']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    8 => 0,
+    9 => 0,
     5 => 0,
     6 => 0,
     4 => 0,
     7 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['tid']['type'] = 'select';
-  $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
+  $handler->display->display_options['filters']['tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['tid_i18n']['vocabulary'] = 'industry';
 
   /* Display: Case Studies */
   $handler = $view->new_display('page', 'Case Studies', 'page');
@@ -437,6 +442,17 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
     'class' => '',
   );
+  /* Field: Content: Linkedin update link */
+  $handler->display->display_options['fields']['field_linkedin_update_link']['id'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['table'] = 'field_data_field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['field'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
@@ -467,6 +483,62 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_tweet_media']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tweet_media']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_tweet_media']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Field: Content: Picture */
+  $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['field'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_linkedin_picture]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['path'] = '[field_linkedin_update_link]';
+  $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
     'class' => '',
@@ -602,7 +674,6 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'case_studies' => 'case_studies',
     'instagram' => 'instagram',
-    'linkedin' => 'linkedin',
     'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
@@ -686,7 +757,7 @@ function views_view_views_default_views() {
   $handler = $view->new_display('block', 'Connect - Contact', 'block');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = ' ';
+  $handler->display->display_options['style_options']['row_class'] = ' blue-background';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
@@ -714,6 +785,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<p>AESSEAL<sup>®</sup> needs the contact information you provide to us to contact you about our products and services. For information on our privacy practices and commitment to protecting your privacy, <a href="http://www.aesseal.com/en/privacy-policy">check out our Privacy Policy.</a></p>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Entityform Type: Internal, numeric entityform type ID */
@@ -797,6 +875,39 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Instagram link */
+  $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
+  $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
+  $handler->display->display_options['fields']['field_instagram_link']['field'] = 'field_instagram_link';
+  $handler->display->display_options['fields']['field_instagram_link']['label'] = '';
+  $handler->display->display_options['fields']['field_instagram_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_instagram_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_instagram_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_instagram_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Tweet link */
+  $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
+  $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
+  $handler->display->display_options['fields']['field_tweet_link']['field'] = 'field_tweet_link';
+  $handler->display->display_options['fields']['field_tweet_link']['label'] = '';
+  $handler->display->display_options['fields']['field_tweet_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_tweet_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tweet_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Linkedin update link */
+  $handler->display->display_options['fields']['field_linkedin_update_link']['id'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['table'] = 'field_data_field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['field'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -827,6 +938,87 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Field: Content: Instagram Picture */
+  $handler->display->display_options['fields']['field_instagram_picture']['id'] = 'field_instagram_picture';
+  $handler->display->display_options['fields']['field_instagram_picture']['table'] = 'field_data_field_instagram_picture';
+  $handler->display->display_options['fields']['field_instagram_picture']['field'] = 'field_instagram_picture';
+  $handler->display->display_options['fields']['field_instagram_picture']['label'] = '';
+  $handler->display->display_options['fields']['field_instagram_picture']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_instagram_picture']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_instagram_picture]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p class="social-icon-width center-block">
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_instagram_picture']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_instagram_picture']['alter']['path'] = '[field_instagram_link]';
+  $handler->display->display_options['fields']['field_instagram_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_instagram_picture']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_instagram_picture']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  /* Field: Content: Picture */
+  $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['field'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_linkedin_picture]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['path'] = '[field_linkedin_update_link]';
+  $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  /* Field: Content: Tweet media */
+  $handler->display->display_options['fields']['field_tweet_media']['id'] = 'field_tweet_media';
+  $handler->display->display_options['fields']['field_tweet_media']['table'] = 'field_data_field_tweet_media';
+  $handler->display->display_options['fields']['field_tweet_media']['field'] = 'field_tweet_media';
+  $handler->display->display_options['fields']['field_tweet_media']['label'] = '';
+  $handler->display->display_options['fields']['field_tweet_media']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_tweet_media']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_tweet_media]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p class="social-icon-width center-block">
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_tweet_media']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_tweet_media']['alter']['path'] = '[field_tweet_link]';
+  $handler->display->display_options['fields']['field_tweet_media']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tweet_media']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_tweet_media']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'img-adaptive',
+  );
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
@@ -951,7 +1143,10 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'instagram' => 'instagram',
+    'linkedin' => 'linkedin',
     'news' => 'news',
+    'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Language */
   $handler->display->display_options['filters']['language']['id'] = 'language';
@@ -984,10 +1179,10 @@ function views_view_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '2';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '1';
   $handler->display->display_options['style_plugin'] = 'masonry_views';
-  $handler->display->display_options['style_options']['row_class'] = 'user-flex col-xs-6 col-sm-4 col-md-4 col-lg-5';
+  $handler->display->display_options['style_options']['row_class'] = 'user-flex col-xs-12 col-sm-6 col-md-4 col-lg-4';
   $handler->display->display_options['style_options']['masonry_column_width_units'] = 'css';
   $handler->display->display_options['style_options']['masonry_resizable'] = TRUE;
   $handler->display->display_options['style_options']['masonry_animated'] = FALSE;
@@ -1005,6 +1200,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '<div class="container-fluid">
       <div class="row">
 	  <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+<p>Audeo dicere, inquit. Hic nihil fuit, quod quaereremus. Duo Reges: constructio interrete. Quod autem meum munus dicis non equidem recuso, sed te adiungo socium. Atque haec ita iustitiae propria sunt, ut sint virtutum reliquarum communia. Et ais, si una littera commota sit, fore tota ut labet disciplina. Certe, nisi voluptatem tanti aestimaretis. </p>
 </div>
 </div>
 </div>';
@@ -1047,15 +1243,17 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_description_et']['table'] = 'field_data_field_description';
   $handler->display->display_options['fields']['field_description_et']['field'] = 'field_description_et';
   $handler->display->display_options['fields']['field_description_et']['label'] = '';
+  $handler->display->display_options['fields']['field_description_et']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_description_et']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_description_et']['type'] = 'text_trimmed';
   $handler->display->display_options['fields']['field_description_et']['settings'] = array(
+    'trim_length' => '600',
     'class' => '',
   );
   /* Field: User: User Location */
   $handler->display->display_options['fields']['field_user_location']['id'] = 'field_user_location';
   $handler->display->display_options['fields']['field_user_location']['table'] = 'field_data_field_user_location';
   $handler->display->display_options['fields']['field_user_location']['field'] = 'field_user_location';
-  $handler->display->display_options['fields']['field_user_location']['label'] = 'Location';
   $handler->display->display_options['fields']['field_user_location']['settings'] = array(
     'bypass_access' => 0,
     'link' => 0,
@@ -1078,7 +1276,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['country']['field'] = 'country';
   $handler->display->display_options['filters']['country']['relationship'] = 'field_user_location_target_id';
   $handler->display->display_options['filters']['country']['value'] = array(
-    'ie' => 'ie',
+    'de' => 'de',
   );
 
   /* Display: Block */
@@ -1147,6 +1345,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['street']['relationship'] = 'field_user_location_target_id';
   $handler->display->display_options['fields']['street']['label'] = '';
   $handler->display->display_options['fields']['street']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['street']['style'] = 'street';
   /* Field: Location: Province */
   $handler->display->display_options['fields']['province']['id'] = 'province';
   $handler->display->display_options['fields']['province']['table'] = 'location';
@@ -1419,7 +1618,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['country']['table'] = 'location';
   $handler->display->display_options['filters']['country']['field'] = 'country';
   $handler->display->display_options['filters']['country']['value'] = array(
-    'ie' => 'ie',
+    'de' => 'de',
   );
   /* Filter criterion: Content: location_type (field_location_type) */
   $handler->display->display_options['filters']['field_location_type_value']['id'] = 'field_location_type_value';
@@ -1637,6 +1836,8 @@ function views_view_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Key Branches';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -2028,7 +2229,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = '<style>
-.mobile-stream .block-title{display:none;}
+.desktop-stream .block-title{display:none;}
 .grey-gradient{background:none; border:none;}
 </style>
 ';
@@ -2068,6 +2269,17 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_instagram_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_instagram_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_instagram_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Linkedin update link */
+  $handler->display->display_options['fields']['field_linkedin_update_link']['id'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['table'] = 'field_data_field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['field'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
     'class' => '',
   );
   /* Field: Content: Tweet link */
@@ -2111,6 +2323,33 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_tweet_media']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tweet_media']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_tweet_media']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  /* Field: Content: Picture */
+  $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['field'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_linkedin_picture]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['path'] = '[field_linkedin_update_link]';
+  $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
     'class' => '',
@@ -2215,6 +2454,35 @@ function views_view_views_default_views() {
     'trim_length' => '400',
     'class' => '',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -2246,7 +2514,6 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'case_studies' => 'case_studies',
     'instagram' => 'instagram',
-    'linkedin' => 'linkedin',
     'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
@@ -2317,7 +2584,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = '<style>
-.mobile-stream .block-title{display:none;}
+.desktop-stream .block-title{display:none;}
 .grey-gradient{background:none; border:none;}
 </style>
 ';
@@ -2361,6 +2628,13 @@ function views_view_views_default_views() {
   /* Display: Our Company - Community Feed */
   $handler = $view->new_display('block', 'Our Company - Community Feed', 'block');
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Instagram link */
   $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
   $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
@@ -2421,6 +2695,35 @@ function views_view_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
   $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
@@ -2543,6 +2846,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Careers Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Instagram link */
   $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
   $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
@@ -2603,6 +2913,35 @@ function views_view_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
   $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
@@ -2760,6 +3099,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Awards Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Instagram link */
   $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
   $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
@@ -2820,6 +3166,35 @@ function views_view_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
   $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
@@ -2942,6 +3317,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Innovation Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Instagram link */
   $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
   $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
@@ -3002,6 +3384,34 @@ function views_view_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
   $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
@@ -3105,7 +3515,6 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
-    'linkedin' => 'linkedin',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
@@ -3124,6 +3533,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Training Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Tweet link */
   $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
   $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
@@ -3133,6 +3549,17 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_tweet_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tweet_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Linkedin update link */
+  $handler->display->display_options['fields']['field_linkedin_update_link']['id'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['table'] = 'field_data_field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['field'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
     'class' => '',
   );
   /* Field: Content: Instagram link */
@@ -3172,6 +3599,62 @@ function views_view_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Field: Content: Picture */
+  $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['field'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_linkedin_picture]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['path'] = '[field_linkedin_update_link]';
+  $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Tweet media */
   $handler->display->display_options['fields']['field_tweet_media']['id'] = 'field_tweet_media';
@@ -3235,45 +3718,12 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'class' => '',
   );
-  /* Field: Content: Linkedin update link */
-  $handler->display->display_options['fields']['field_linkedin_update_link']['id'] = 'field_linkedin_update_link';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['table'] = 'field_data_field_linkedin_update_link';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['field'] = 'field_linkedin_update_link';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['label'] = '';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_linkedin_update_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_linkedin_update_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
-    'class' => '',
-  );
-  /* Field: Content: Picture */
-  $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
-  $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
-  $handler->display->display_options['fields']['field_linkedin_picture']['field'] = 'field_linkedin_picture';
-  $handler->display->display_options['fields']['field_linkedin_picture']['label'] = '';
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['text'] = '<div class="image-link">
-<div class="social-box">
-[field_linkedin_picture]
-<div class="black-fade">
-<div class="overlay-caption text-center">
-<p>
-<span class="social-font">
-</span>
-</div>
-</div>
-</div>
-</div>';
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['path'] = '[field_linkedin_update_link]';
-  $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
-    'class' => '',
-  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -3283,6 +3733,14 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'training' => 'training',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 1;
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -3291,6 +3749,7 @@ function views_view_views_default_views() {
     'linkedin' => 'linkedin',
     'tweet' => 'tweet',
   );
+  $handler->display->display_options['filters']['type']['group'] = 2;
   /* Filter criterion: Content: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
@@ -3298,6 +3757,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['tid']['value'] = array(
     0 => '71',
   );
+  $handler->display->display_options['filters']['tid']['group'] = 2;
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
   $handler->display->display_options['block_description'] = 'Training Social Stream - Mobile';
 
@@ -3306,6 +3766,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Performance Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Tweet link */
   $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
   $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
@@ -3315,6 +3782,17 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_tweet_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tweet_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Linkedin update link */
+  $handler->display->display_options['fields']['field_linkedin_update_link']['id'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['table'] = 'field_data_field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['field'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
     'class' => '',
   );
   /* Field: Content: Instagram link */
@@ -3354,6 +3832,62 @@ function views_view_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Field: Content: Picture */
+  $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['field'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_linkedin_picture]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['path'] = '[field_linkedin_update_link]';
+  $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Tweet media */
   $handler->display->display_options['fields']['field_tweet_media']['id'] = 'field_tweet_media';
@@ -3415,44 +3949,6 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['body']['element_class'] = 'social-body';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['settings'] = array(
-    'class' => '',
-  );
-  /* Field: Content: Linkedin update link */
-  $handler->display->display_options['fields']['field_linkedin_update_link']['id'] = 'field_linkedin_update_link';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['table'] = 'field_data_field_linkedin_update_link';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['field'] = 'field_linkedin_update_link';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['label'] = '';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_linkedin_update_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_linkedin_update_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
-    'class' => '',
-  );
-  /* Field: Content: Picture */
-  $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
-  $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
-  $handler->display->display_options['fields']['field_linkedin_picture']['field'] = 'field_linkedin_picture';
-  $handler->display->display_options['fields']['field_linkedin_picture']['label'] = '';
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['text'] = '<div class="image-link">
-<div class="social-box">
-[field_linkedin_picture]
-<div class="black-fade">
-<div class="overlay-caption text-center">
-<p>
-<span class="social-font">
-</span>
-</div>
-</div>
-</div>
-</div>';
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['path'] = '[field_linkedin_update_link]';
-  $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
     'class' => '',
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -3488,6 +3984,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Environment Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Tweet link */
   $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
   $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
@@ -3548,6 +4051,35 @@ function views_view_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
   $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
@@ -3686,7 +4218,8 @@ function views_view_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter';
-  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
@@ -4806,11 +5339,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
-  $handler->display->display_options['cache']['type'] = 'time';
-  $handler->display->display_options['cache']['results_lifespan'] = '518400';
-  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
-  $handler->display->display_options['cache']['output_lifespan'] = '518400';
-  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
@@ -4855,9 +5384,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['email']['relationship'] = 'field_user_location_target_id';
   $handler->display->display_options['fields']['email']['label'] = '';
   $handler->display->display_options['fields']['email']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['email']['alter']['text'] = '<i class="fa fa-envelope fa-2x" aria-hidden="true"></i>  &nbsp;Email: [email] &nbsp;';
-  $handler->display->display_options['fields']['email']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['email']['alter']['path'] = '[emaill]';
+  $handler->display->display_options['fields']['email']['alter']['text'] = '<i class="fa fa-envelope fa-2x" aria-hidden="true"></i>  &nbsp;Email: <a href="mailto:[email]" style="color:#ffffff;">[email]</a> &nbsp;';
   $handler->display->display_options['fields']['email']['element_label_colon'] = FALSE;
   /* Sort criterion: User: Created date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -4872,46 +5399,11 @@ function views_view_views_default_views() {
 
   /* Display: opening-hours */
   $handler = $view->new_display('block', 'opening-hours', 'block');
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Opening Hours */
-  $handler->display->display_options['fields']['field_opening_hours']['id'] = 'field_opening_hours';
-  $handler->display->display_options['fields']['field_opening_hours']['table'] = 'field_data_field_opening_hours';
-  $handler->display->display_options['fields']['field_opening_hours']['field'] = 'field_opening_hours';
-  $handler->display->display_options['fields']['field_opening_hours']['relationship'] = 'field_user_location_target_id';
-  $handler->display->display_options['fields']['field_opening_hours']['label'] = '';
-  $handler->display->display_options['fields']['field_opening_hours']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_opening_hours']['alter']['text'] = '<i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>  &nbsp;Opening Hours: [field_opening_hours]  &nbsp;';
-  $handler->display->display_options['fields']['field_opening_hours']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_opening_hours']['settings'] = array(
-    'class' => '',
-  );
-  /* Field: Location: Phone */
-  $handler->display->display_options['fields']['phone']['id'] = 'phone';
-  $handler->display->display_options['fields']['phone']['table'] = 'location_phone';
-  $handler->display->display_options['fields']['phone']['field'] = 'phone';
-  $handler->display->display_options['fields']['phone']['relationship'] = 'field_user_location_target_id';
-  $handler->display->display_options['fields']['phone']['label'] = '';
-  $handler->display->display_options['fields']['phone']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['phone']['alter']['text'] = '<i class="fa fa-phone fa-2x" aria-hidden="true"></i>  &nbsp;Phone: [phone] &nbsp;';
-  $handler->display->display_options['fields']['phone']['element_label_colon'] = FALSE;
-  /* Field: Location: Email address */
-  $handler->display->display_options['fields']['email']['id'] = 'email';
-  $handler->display->display_options['fields']['email']['table'] = 'location_email';
-  $handler->display->display_options['fields']['email']['field'] = 'email';
-  $handler->display->display_options['fields']['email']['relationship'] = 'field_user_location_target_id';
-  $handler->display->display_options['fields']['email']['label'] = '';
-  $handler->display->display_options['fields']['email']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['email']['alter']['text'] = '<i class="fa fa-envelope fa-2x" aria-hidden="true"></i>  &nbsp;Email: [email] &nbsp;';
-  $handler->display->display_options['fields']['email']['alter']['path'] = '[emaill]';
-  $handler->display->display_options['fields']['email']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Branch Opening Hours';
   $handler->display->display_options['block_caching'] = '8';
 
-  /* Display: homepage-contact */
-  $handler = $view->new_display('block', 'homepage-contact', 'block_1');
-  $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['defaults']['cache'] = FALSE;
-  $handler->display->display_options['cache']['type'] = 'none';
+  /* Display: Home - Contact */
+  $handler = $view->new_display('block', 'Home - Contact', 'block_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'padding-top padding-bottom white-text';
@@ -4925,18 +5417,6 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Opening Hours */
-  $handler->display->display_options['fields']['field_opening_hours']['id'] = 'field_opening_hours';
-  $handler->display->display_options['fields']['field_opening_hours']['table'] = 'field_data_field_opening_hours';
-  $handler->display->display_options['fields']['field_opening_hours']['field'] = 'field_opening_hours';
-  $handler->display->display_options['fields']['field_opening_hours']['relationship'] = 'field_user_location_target_id';
-  $handler->display->display_options['fields']['field_opening_hours']['label'] = '';
-  $handler->display->display_options['fields']['field_opening_hours']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_opening_hours']['alter']['text'] = '<i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>  &nbsp;Opening Hours: [field_opening_hours]  &nbsp;';
-  $handler->display->display_options['fields']['field_opening_hours']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_opening_hours']['settings'] = array(
-    'class' => '',
-  );
   /* Field: Location: Phone */
   $handler->display->display_options['fields']['phone']['id'] = 'phone';
   $handler->display->display_options['fields']['phone']['table'] = 'location_phone';
@@ -4954,9 +5434,8 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['email']['label'] = '';
   $handler->display->display_options['fields']['email']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['email']['alter']['text'] = '<i class="fa fa-envelope fa-2x" aria-hidden="true"></i>  &nbsp;Email: <a href="mailto:[email]" style="color:#ffffff;">[email]</a> &nbsp;';
-  $handler->display->display_options['fields']['email']['alter']['path'] = '[email]';
   $handler->display->display_options['fields']['email']['element_label_colon'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Home - Contact';
+  $handler->display->display_options['block_description'] = 'Home - Contact details';
   $handler->display->display_options['block_caching'] = '8';
   $export['opening_hours'] = $view;
 
@@ -4973,7 +5452,6 @@ function views_view_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Product Range';
-  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -5017,8 +5495,8 @@ function views_view_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
+  /* Display: English */
+  $handler = $view->new_display('page', 'English', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Product Range';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -5029,10 +5507,10 @@ function views_view_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<p class="lead">AESSEAL<sup>®</sup> offers a comprehensive sealing package, covering everything from shaft packing and flow meters, seals and systems, to bearing face seals and labyrinth seals.</p>
+  $handler->display->display_options['header']['area']['content'] = '<p class="lead"><br>AESSEAL<sup>®</sup> offers a comprehensive sealing package, covering everything from shaft packing and flow meters, seals and systems, to bearing face seals and labyrinth seals.</p>
 <div class="well">
 <h4>This webpage provides a brief overview of our extensive inventoried product range</h2>
-<p>Over 10 million inventoried standard product permutations plus custom-engineered solutions. Available to browse on <a target="_blank"  href="https://www.aesseal.com/" title="www.aesseal.com">www.aesseal.com</a></p>
+<p>Over 10 million inventoried standard product permutations plus custom-engineered solutions. Available to browse on the global website <a target="_blank"  href="https://www.aesseal.com/en/product" title="www.aesseal.com">www.aesseal.com</a></p>
 <div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -5069,7 +5547,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_external_link']['field'] = 'field_external_link';
   $handler->display->display_options['fields']['field_external_link']['label'] = '';
   $handler->display->display_options['fields']['field_external_link']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_external_link']['alter']['text'] = '<p>View the range of <a href="[field_external_link-url]" alt="[field_external_link-title]" target="_blank" title="[name]">[name] on aesseal.com</a></p>';
+  $handler->display->display_options['fields']['field_external_link']['alter']['text'] = '<p>View the range of <a href="[field_external_link-url]" alt="[field_external_link-title]" target="_blank" title="[name]">[name] on aesseal.com</a> </p>';
   $handler->display->display_options['fields']['field_external_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_external_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_external_link']['settings'] = array(
@@ -5082,7 +5560,598 @@ function views_view_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: French */
+  $handler = $view->new_display('page', 'French', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Gamme de Produits';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<p class="lead">AESSEAL<sup>®</sup> propose des solutions complètes d\'étanchéité, depuis les tresses d\'étanchéité et les débitmètres jusqu’aux garnitures et systèmes d\'exploitation, protections de paliers et joints labyrinthes.</p>
+<div class="well">
+<h4>Vous trouverez sur cette page web un aperçu rapide de notre vaste gamme de produits en stock</h2>
+<p>Plus de 10 millions de combinaisons de produits standards référencés en plus de solutions d’ingénierie personnalisées. Disponible en consultation sur le site mondial <a target="_blank"  href="https://www.aesseal.com/fr/produits" title="www.aesseal.com">www.aesseal.com</a></p>
+<div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_product_image']['id'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['table'] = 'field_data_field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['field'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['label'] = '';
+  $handler->display->display_options['fields']['field_product_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_product_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_product_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'product',
+  );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Field: external link */
+  $handler->display->display_options['fields']['field_external_link']['id'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['table'] = 'field_data_field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['field'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['label'] = '';
+  $handler->display->display_options['fields']['field_external_link']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_external_link']['alter']['text'] = '<p>Parcourez la gamme <a href="[field_external_link-url]" alt="[field_external_link-title]" target="_blank" title="[name]">[name]</a> sur aesseal.com </p>';
+  $handler->display->display_options['fields']['field_external_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_external_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_external_link']['settings'] = array(
+    'class' => '',
+  );
+  $handler->display->display_options['path'] = 'gamme-de-produits';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Gamme de Produits';
+  $handler->display->display_options['menu']['weight'] = '6';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: German */
+  $handler = $view->new_display('page', 'German', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Produktprogramm';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<p class="lead">AESSEAL<sup>®</sup> verfügt über ein umfangreiches Angebot an Dichtungen - von Wellendichtungen und Durchflussmessern über andere Lösungen und Systeme bis hin zu Gleitringdichtungen für Kugellager und Labyrinthdichtungen.</p>
+<div class="well">
+<h4>Diese Webseite gibt einen kurzen Überblick über unseren umfangreichen Lagerproduktbestand</h2>
+<p>Mehr als 10 Millionen gelagerte Standardproduktvariationen und zusätzlich kundenspezifische Lösungen. Für die Suche verfügbar auf der internationalen Webseite <a target="_blank"  href="https://www.aesseal.com/de/produkte" title="www.aesseal.com">www.aesseal.com</a></p>
+<div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_product_image']['id'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['table'] = 'field_data_field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['field'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['label'] = '';
+  $handler->display->display_options['fields']['field_product_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_product_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_product_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'product',
+  );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Field: external link */
+  $handler->display->display_options['fields']['field_external_link']['id'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['table'] = 'field_data_field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['field'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['label'] = '';
+  $handler->display->display_options['fields']['field_external_link']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_external_link']['alter']['text'] = '<p>Sortiment <a href="[field_external_link-url]" alt="[field_external_link-title]" target="_blank" title="[name]">[name] auf aesseal.com</a> ansehen </p>';
+  $handler->display->display_options['fields']['field_external_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_external_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_external_link']['settings'] = array(
+    'class' => '',
+  );
+  $handler->display->display_options['path'] = 'produktprogramm';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Produktprogramm';
+  $handler->display->display_options['menu']['weight'] = '6';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Italian */
+  $handler = $view->new_display('page', 'Italian', 'page_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Gamma prodotti';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<p class="lead"><br>AESSEAL<sup>®</sup> offers a comprehensive sealing package, covering everything from shaft packing and flow meters, seals and systems, to bearing face seals and labyrinth seals.</p>
+<div class="well">
+<h4>This webpage provides a brief overview of our extensive inventoried product range</h2>
+<p>Over 10 million inventoried standard product permutations plus custom-engineered solutions. Available to browse on the global website <a target="_blank"  href="https://www.aesseal.com/it/prodotti" title="www.aesseal.com">www.aesseal.com</a></p>
+<div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_product_image']['id'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['table'] = 'field_data_field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['field'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['label'] = '';
+  $handler->display->display_options['fields']['field_product_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_product_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_product_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'product',
+  );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Field: external link */
+  $handler->display->display_options['fields']['field_external_link']['id'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['table'] = 'field_data_field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['field'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['label'] = '';
+  $handler->display->display_options['fields']['field_external_link']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_external_link']['alter']['text'] = '<p>View the range of <a href="[field_external_link-url]" alt="[field_external_link-title]" target="_blank" title="[name]">[name] on aesseal.com</a> </p>';
+  $handler->display->display_options['fields']['field_external_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_external_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_external_link']['settings'] = array(
+    'class' => '',
+  );
+  $handler->display->display_options['path'] = 'gamma-prodotti';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Gamma prodotti';
+  $handler->display->display_options['menu']['weight'] = '6';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Spanish */
+  $handler = $view->new_display('page', 'Spanish', 'page_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Gama De Productos';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<p class="lead"><br>AESSEAL<sup>®</sup> ofrece un amplio surtido de cierres mecánicos, que abarcan desde empaquetaduras de ejes y caudalímetros, sellos y sistemas, hasta cierres enfrentados y cierres laberínticos.</p>
+<div class="well">
+<h4>Esta página web ofrece un breve resumen de nuestra amplia gama de productos</h2>
+<p>Más de 10 millones de combinaciones de productos estándar y soluciones de diseño personalizado. Navegue por nuestra página web mundial: <a target="_blank"  href="https://www.aesseal.com/es/productos" title="www.aesseal.com">www.aesseal.com</a></p>
+</div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_product_image']['id'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['table'] = 'field_data_field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['field'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['label'] = '';
+  $handler->display->display_options['fields']['field_product_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_product_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_product_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'product',
+  );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Field: external link */
+  $handler->display->display_options['fields']['field_external_link']['id'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['table'] = 'field_data_field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['field'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['label'] = '';
+  $handler->display->display_options['fields']['field_external_link']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_external_link']['alter']['text'] = '<p>Ver la gama de <a href="[field_external_link-url]" alt="[field_external_link-title]" target="_blank" title="[name]">[name]</a> en aesseal.com </p>';
+  $handler->display->display_options['fields']['field_external_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_external_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_external_link']['settings'] = array(
+    'class' => '',
+  );
+  $handler->display->display_options['path'] = 'gama-de-productos';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Gama De Productos';
+  $handler->display->display_options['menu']['weight'] = '6';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Swedish */
+  $handler = $view->new_display('page', 'Swedish', 'page_5');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Produktsortiment';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<p class="lead"><br>AESSEAL<sup>®</sup> erbjuder ett omfattande förseglingssortiment som omfattar allt från axelpackningar och flödesmätare, förseglingar och system till förseglingar för lagerytor och labyrintförseglingar.</p>
+<div class="well">
+<h4>Den här webbplatsen ger en kort översikt över vårt utförliga lagerförda produktsortiment</h2>
+<p>Över tio miljoner lagerförda varianter på standardprodukter samt specialkonstruerade lösningar. Tillgänglig för sökning på den globala webbplatsen <a target="_blank"  href="https://www.aesseal.com/" title="www.aesseal.com">www.aesseal.com</a></p>
+<div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_product_image']['id'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['table'] = 'field_data_field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['field'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['label'] = '';
+  $handler->display->display_options['fields']['field_product_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_product_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_product_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'product',
+  );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Field: external link */
+  $handler->display->display_options['fields']['field_external_link']['id'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['table'] = 'field_data_field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['field'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['label'] = '';
+  $handler->display->display_options['fields']['field_external_link']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_external_link']['alter']['text'] = '<p>View the range of <a href="[field_external_link-url]" alt="[field_external_link-title]" target="_blank" title="[name]">[name] on aesseal.com</a> </p>';
+  $handler->display->display_options['fields']['field_external_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_external_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_external_link']['settings'] = array(
+    'class' => '',
+  );
+  $handler->display->display_options['path'] = 'produktsortiment';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Produktsortiment';
+  $handler->display->display_options['menu']['weight'] = '6';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Turkish */
+  $handler = $view->new_display('page', 'Turkish', 'page_6');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Genel Ürün Kataloğu';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<p class="lead"><br>AESSEAL<sup>®</sup> offers a comprehensive sealing package, covering everything from shaft packing and flow meters, seals and systems, to bearing face seals and labyrinth seals.</p>
+<div class="well">
+<h4>This webpage provides a brief overview of our extensive inventoried product range</h2>
+<p>Over 10 million inventoried standard product permutations plus custom-engineered solutions. Available to browse on the global website <a target="_blank"  href="https://www.aesseal.com/tr/ürünler" title="www.aesseal.com">www.aesseal.com</a></p>
+<div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_product_image']['id'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['table'] = 'field_data_field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['field'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['label'] = '';
+  $handler->display->display_options['fields']['field_product_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_product_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_product_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'product',
+  );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Field: external link */
+  $handler->display->display_options['fields']['field_external_link']['id'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['table'] = 'field_data_field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['field'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['label'] = '';
+  $handler->display->display_options['fields']['field_external_link']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_external_link']['alter']['text'] = '<p>View the range of <a href="[field_external_link-url]" alt="[field_external_link-title]" target="_blank" title="[name]">[name] on aesseal.com</a> </p>';
+  $handler->display->display_options['fields']['field_external_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_external_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_external_link']['settings'] = array(
+    'class' => '',
+  );
+  $handler->display->display_options['path'] = 'genel-ürün-kataloğu';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Genel Ürün Kataloğu';
+  $handler->display->display_options['menu']['weight'] = '6';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Polish */
+  $handler = $view->new_display('page', 'Polish', 'page_7');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Przegląd produktów';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = 'Firma <p class="lead"><br>AESSEAL<sup>®</sup> oferuje kompleksowy asortyment uszczelnień, w tym uszczelnienia wałów i przepływomierzy, systemy wspomagające, systemy ochrony łożysk i uszczelnienia labiryntowe.</p>
+<div class="well">
+<h4>Na niniejszej stronie przedstawiliśmy skróconą ofertę naszego szerokiego asortymentu produktów standardowych.</h2>
+<p>Oferujemy ponad 10 milionów kombinacji produktów standardowych plus rozwiązania specjalne. Oferta jest dostępna do przeglądu na naszej globalnej stronie pod adresem: <a target="_blank"  href="https://www.aesseal.com/" title="www.aesseal.com">www.aesseal.com</a></p>
+<div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_product_image']['id'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['table'] = 'field_data_field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['field'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['label'] = '';
+  $handler->display->display_options['fields']['field_product_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_product_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_product_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'product',
+  );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Field: external link */
+  $handler->display->display_options['fields']['field_external_link']['id'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['table'] = 'field_data_field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['field'] = 'field_external_link';
+  $handler->display->display_options['fields']['field_external_link']['label'] = '';
+  $handler->display->display_options['fields']['field_external_link']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_external_link']['alter']['text'] = '<p>View the range of <a href="[field_external_link-url]" alt="[field_external_link-title]" target="_blank" title="[name]">[name] on aesseal.com</a> </p>';
+  $handler->display->display_options['fields']['field_external_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_external_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_external_link']['settings'] = array(
+    'class' => '',
+  );
+  $handler->display->display_options['path'] = 'przegląd-produktów';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Products';
+  $handler->display->display_options['menu']['weight'] = '6';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['product_range'] = $view;
+
+  $view = new view();
+  $view->name = 'related_products';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Related Products';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Related Products';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'col-lg-4 col-md-4 col-sm-6 image-highlight no-padding product-widget margin-1em';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_product_image']['id'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['table'] = 'field_data_field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['field'] = 'field_product_image';
+  $handler->display->display_options['fields']['field_product_image']['label'] = '';
+  $handler->display->display_options['fields']['field_product_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_product_image']['alter']['path'] = '[field_reference]';
+  $handler->display->display_options['fields']['field_product_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_product_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_product_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_product_image']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_product_image']['delta_offset'] = '0';
+  /* Field: Content: Related Products  */
+  $handler->display->display_options['fields']['field_reference']['id'] = 'field_reference';
+  $handler->display->display_options['fields']['field_reference']['table'] = 'field_data_field_reference';
+  $handler->display->display_options['fields']['field_reference']['field'] = 'field_reference';
+  $handler->display->display_options['fields']['field_reference']['label'] = '';
+  $handler->display->display_options['fields']['field_reference']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_reference']['alter']['text'] = '<div class="product-image-widget">[field_product_image]</div>
+<p>[field_product_image-title]</p>';
+  $handler->display->display_options['fields']['field_reference']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_reference']['alter']['path'] = '[field_reference-url]';
+  $handler->display->display_options['fields']['field_reference']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_reference']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_reference']['type'] = 'link_host';
+  $handler->display->display_options['fields']['field_reference']['settings'] = array(
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_reference']['delta_offset'] = '0';
+  /* Field: Content: Related Products  */
+  $handler->display->display_options['fields']['field_reference_1']['id'] = 'field_reference_1';
+  $handler->display->display_options['fields']['field_reference_1']['table'] = 'field_data_field_reference';
+  $handler->display->display_options['fields']['field_reference_1']['field'] = 'field_reference';
+  $handler->display->display_options['fields']['field_reference_1']['label'] = '';
+  $handler->display->display_options['fields']['field_reference_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_reference_1']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_reference_1']['element_wrapper_class'] = 'product-widget-btn btn btn-block';
+  $handler->display->display_options['fields']['field_reference_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_reference_1']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_reference_1']['settings'] = array(
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_reference_1']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_reference_1']['delta_offset'] = '0';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'case_studies' => 'case_studies',
+  );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+
+  /* Display: Related Products */
+  $handler = $view->new_display('block', 'Related Products', 'block');
+  $handler->display->display_options['block_description'] = 'Related Products';
+  $export['related_products'] = $view;
 
   $view = new view();
   $view->name = 'sitemap';
@@ -5387,198 +6456,13 @@ function views_view_views_default_views() {
   /* Display: Our Company - Community Feed */
   $handler = $view->new_display('block', 'Our Company - Community Feed', 'block');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Instagram link */
-  $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
-  $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
-  $handler->display->display_options['fields']['field_instagram_link']['field'] = 'field_instagram_link';
-  $handler->display->display_options['fields']['field_instagram_link']['label'] = '';
-  $handler->display->display_options['fields']['field_instagram_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_instagram_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_instagram_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_instagram_link']['settings'] = array(
-    'class' => '',
-  );
-  /* Field: Content: Linkedin update link */
-  $handler->display->display_options['fields']['field_linkedin_update_link']['id'] = 'field_linkedin_update_link';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['table'] = 'field_data_field_linkedin_update_link';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['field'] = 'field_linkedin_update_link';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['label'] = '';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_linkedin_update_link']['alter']['path'] = '[field_linkedin_update_link]';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_linkedin_update_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
-    'class' => '',
-  );
-  /* Field: Content: Tweet link */
-  $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
-  $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
-  $handler->display->display_options['fields']['field_tweet_link']['field'] = 'field_tweet_link';
-  $handler->display->display_options['fields']['field_tweet_link']['label'] = '';
-  $handler->display->display_options['fields']['field_tweet_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_tweet_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_tweet_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
-    'class' => '',
-  );
-  /* Field: Content: Instagram Picture */
-  $handler->display->display_options['fields']['field_instagram_picture']['id'] = 'field_instagram_picture';
-  $handler->display->display_options['fields']['field_instagram_picture']['table'] = 'field_data_field_instagram_picture';
-  $handler->display->display_options['fields']['field_instagram_picture']['field'] = 'field_instagram_picture';
-  $handler->display->display_options['fields']['field_instagram_picture']['label'] = '';
-  $handler->display->display_options['fields']['field_instagram_picture']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_instagram_picture']['alter']['text'] = '<div class="image-link">
-<div class="social-box">
-[field_instagram_picture]
-<div class="black-fade">
-<div class="overlay-caption text-center">
-<p>
-<span class="social-font">
-</span>
-</div>
-</div>
-</div>
-</div>';
-  $handler->display->display_options['fields']['field_instagram_picture']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_instagram_picture']['alter']['path'] = '[field_instagram_link]';
-  $handler->display->display_options['fields']['field_instagram_picture']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_instagram_picture']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_instagram_picture']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
-    'class' => 'img-adaptive',
-  );
-  /* Field: Content: Picture */
-  $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
-  $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
-  $handler->display->display_options['fields']['field_linkedin_picture']['field'] = 'field_linkedin_picture';
-  $handler->display->display_options['fields']['field_linkedin_picture']['label'] = '';
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['text'] = '<div class="image-link">
-<div class="social-box">
-[field_linkedin_picture]
-<div class="black-fade">
-<div class="overlay-caption text-center">
-<p>
-<span class="social-font">
-</span>
-</div>
-</div>
-</div>
-</div>';
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['path'] = '[field_instagram_picture]';
-  $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
-    'class' => '',
-  );
-  /* Field: Content: Tweet media */
-  $handler->display->display_options['fields']['field_tweet_media']['id'] = 'field_tweet_media';
-  $handler->display->display_options['fields']['field_tweet_media']['table'] = 'field_data_field_tweet_media';
-  $handler->display->display_options['fields']['field_tweet_media']['field'] = 'field_tweet_media';
-  $handler->display->display_options['fields']['field_tweet_media']['label'] = '';
-  $handler->display->display_options['fields']['field_tweet_media']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_tweet_media']['alter']['text'] = '<div class="image-link">
-<div class="social-box">
-[field_tweet_media]
-<div class="black-fade">
-<div class="overlay-caption text-center">
-<p>
-<span class="social-font">
-</span>
-</div>
-</div>
-</div>
-</div>';
-  $handler->display->display_options['fields']['field_tweet_media']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_tweet_media']['alter']['path'] = '[field_tweet_link]';
-  $handler->display->display_options['fields']['field_tweet_media']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_tweet_media']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_tweet_media']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
-    'class' => 'img-adaptive',
-  );
-  /* Field: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['label'] = '';
-  $handler->display->display_options['fields']['created']['element_type'] = 'div';
-  $handler->display->display_options['fields']['created']['element_class'] = 'social-date';
-  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'jS, F, Y';
-  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Content: social icon */
-  $handler->display->display_options['fields']['field_social_icon']['id'] = 'field_social_icon';
-  $handler->display->display_options['fields']['field_social_icon']['table'] = 'field_data_field_social_icon';
-  $handler->display->display_options['fields']['field_social_icon']['field'] = 'field_social_icon';
-  $handler->display->display_options['fields']['field_social_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_social_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_social_icon']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_social_icon']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
-    'class' => 'social-indicator',
-  );
-  /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
-  $handler->display->display_options['fields']['body']['element_type'] = 'div';
-  $handler->display->display_options['fields']['body']['element_class'] = 'social-body';
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['settings'] = array(
-    'class' => '',
-  );
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'instagram' => 'instagram',
-    'linkedin' => 'linkedin',
-    'tweet' => 'tweet',
-  );
-  /* Filter criterion: Content: Has taxonomy term */
-  $handler->display->display_options['filters']['tid']['id'] = 'tid';
-  $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['filters']['tid']['field'] = 'tid';
-  $handler->display->display_options['filters']['tid']['value'] = array(
-    0 => '1',
-    1 => '60',
-  );
-  $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
-  $handler->display->display_options['block_description'] = 'Community Social Stream';
-
-  /* Display: Our Company - Careers Feed */
-  $handler = $view->new_display('block', 'Our Company - Careers Feed', 'block_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Careers Feed';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Type */
-  $handler->display->display_options['fields']['type']['id'] = 'type';
-  $handler->display->display_options['fields']['type']['table'] = 'node';
-  $handler->display->display_options['fields']['type']['field'] = 'type';
-  $handler->display->display_options['fields']['type']['label'] = '';
-  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['type']['machine_name'] = TRUE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Instagram link */
   $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
   $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
@@ -5612,18 +6496,35 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
     'class' => '',
   );
-  /* Field: Field: external link */
-  $handler->display->display_options['fields']['field_external_link_1']['id'] = 'field_external_link_1';
-  $handler->display->display_options['fields']['field_external_link_1']['table'] = 'field_data_field_external_link';
-  $handler->display->display_options['fields']['field_external_link_1']['field'] = 'field_external_link';
-  $handler->display->display_options['fields']['field_external_link_1']['label'] = '';
-  $handler->display->display_options['fields']['field_external_link_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_external_link_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_external_link_1']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_external_link_1']['type'] = 'link_absolute';
-  $handler->display->display_options['fields']['field_external_link_1']['settings'] = array(
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
     'class' => '',
   );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Instagram Picture */
   $handler->display->display_options['fields']['field_instagram_picture']['id'] = 'field_instagram_picture';
   $handler->display->display_options['fields']['field_instagram_picture']['table'] = 'field_data_field_instagram_picture';
@@ -5705,15 +6606,141 @@ function views_view_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
-  /* Field: Content: Careers Image */
-  $handler->display->display_options['fields']['field_careers_image']['id'] = 'field_careers_image';
-  $handler->display->display_options['fields']['field_careers_image']['table'] = 'field_data_field_careers_image';
-  $handler->display->display_options['fields']['field_careers_image']['field'] = 'field_careers_image';
-  $handler->display->display_options['fields']['field_careers_image']['label'] = '';
-  $handler->display->display_options['fields']['field_careers_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_careers_image']['alter']['text'] = '<div class="image-link">
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['element_type'] = 'div';
+  $handler->display->display_options['fields']['created']['element_class'] = 'social-date';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'jS, F, Y';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Content: social icon */
+  $handler->display->display_options['fields']['field_social_icon']['id'] = 'field_social_icon';
+  $handler->display->display_options['fields']['field_social_icon']['table'] = 'field_data_field_social_icon';
+  $handler->display->display_options['fields']['field_social_icon']['field'] = 'field_social_icon';
+  $handler->display->display_options['fields']['field_social_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_social_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_social_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_social_icon']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'social-indicator',
+  );
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_type'] = 'div';
+  $handler->display->display_options['fields']['body']['element_class'] = 'social-body';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '400',
+    'class' => '',
+  );
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'instagram' => 'instagram',
+    'linkedin' => 'linkedin',
+    'tweet' => 'tweet',
+  );
+  /* Filter criterion: Content: Has taxonomy term */
+  $handler->display->display_options['filters']['tid']['id'] = 'tid';
+  $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid']['value'] = array(
+    0 => '1',
+    1 => '60',
+  );
+  $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
+  $handler->display->display_options['block_description'] = 'Community Social Stream';
+
+  /* Display: Our Company - Careers Feed */
+  $handler = $view->new_display('block', 'Our Company - Careers Feed', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Careers Feed';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'node';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['type']['machine_name'] = TRUE;
+  /* Field: Content: Instagram link */
+  $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
+  $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
+  $handler->display->display_options['fields']['field_instagram_link']['field'] = 'field_instagram_link';
+  $handler->display->display_options['fields']['field_instagram_link']['label'] = '';
+  $handler->display->display_options['fields']['field_instagram_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_instagram_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_instagram_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_instagram_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Linkedin update link */
+  $handler->display->display_options['fields']['field_linkedin_update_link']['id'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['table'] = 'field_data_field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['field'] = 'field_linkedin_update_link';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_update_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Tweet link */
+  $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
+  $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
+  $handler->display->display_options['fields']['field_tweet_link']['field'] = 'field_tweet_link';
+  $handler->display->display_options['fields']['field_tweet_link']['label'] = '';
+  $handler->display->display_options['fields']['field_tweet_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_tweet_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tweet_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
 <div class="social-box">
-[field_careers_image]
+[field_image]
 <div class="black-fade">
 <div class="overlay-caption text-center">
 <p>
@@ -5723,14 +6750,97 @@ function views_view_views_default_views() {
 </div>
 </div>
 </div>';
-  $handler->display->display_options['fields']['field_careers_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_careers_image']['alter']['path'] = '[field_external_link_1]';
-  $handler->display->display_options['fields']['field_careers_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_careers_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_careers_image']['settings'] = array(
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
     'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Field: Content: Instagram Picture */
+  $handler->display->display_options['fields']['field_instagram_picture']['id'] = 'field_instagram_picture';
+  $handler->display->display_options['fields']['field_instagram_picture']['table'] = 'field_data_field_instagram_picture';
+  $handler->display->display_options['fields']['field_instagram_picture']['field'] = 'field_instagram_picture';
+  $handler->display->display_options['fields']['field_instagram_picture']['label'] = '';
+  $handler->display->display_options['fields']['field_instagram_picture']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_instagram_picture']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_instagram_picture]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_instagram_picture']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_instagram_picture']['alter']['path'] = '[field_instagram_link]';
+  $handler->display->display_options['fields']['field_instagram_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_instagram_picture']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_instagram_picture']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'img-adaptive',
+  );
+  /* Field: Content: Picture */
+  $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['field'] = 'field_linkedin_picture';
+  $handler->display->display_options['fields']['field_linkedin_picture']['label'] = '';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_linkedin_picture]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['alter']['path'] = '[field_linkedin_update_link]';
+  $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  /* Field: Content: Tweet media */
+  $handler->display->display_options['fields']['field_tweet_media']['id'] = 'field_tweet_media';
+  $handler->display->display_options['fields']['field_tweet_media']['table'] = 'field_data_field_tweet_media';
+  $handler->display->display_options['fields']['field_tweet_media']['field'] = 'field_tweet_media';
+  $handler->display->display_options['fields']['field_tweet_media']['label'] = '';
+  $handler->display->display_options['fields']['field_tweet_media']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_tweet_media']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_tweet_media]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_tweet_media']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_tweet_media']['alter']['path'] = '[field_tweet_link]';
+  $handler->display->display_options['fields']['field_tweet_media']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tweet_media']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_tweet_media']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => 'img-adaptive',
   );
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
@@ -5788,6 +6898,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_external_link']['table'] = 'field_data_field_external_link';
   $handler->display->display_options['fields']['field_external_link']['field'] = 'field_external_link';
   $handler->display->display_options['fields']['field_external_link']['label'] = '';
+  $handler->display->display_options['fields']['field_external_link']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_external_link']['element_type'] = 'div';
   $handler->display->display_options['fields']['field_external_link']['element_class'] = 'social-body';
   $handler->display->display_options['fields']['field_external_link']['element_label_colon'] = FALSE;
@@ -5795,6 +6906,15 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_external_link']['settings'] = array(
     'class' => '',
   );
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_type'] = 'div';
+  $handler->display->display_options['fields']['view_node']['element_class'] = '[type] social-body';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'Full Job Description Here';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['operator'] = 'OR';
   $handler->display->display_options['filter_groups']['groups'] = array(
@@ -5844,6 +6964,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Awards Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Instagram link */
   $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
   $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
@@ -5904,6 +7031,35 @@ function views_view_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
   $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
@@ -6026,6 +7182,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Innovation Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Instagram link */
   $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
   $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
@@ -6086,6 +7249,35 @@ function views_view_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
   $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
@@ -6209,6 +7401,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Training Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Tweet link */
   $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
   $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
@@ -6231,6 +7430,35 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
     'class' => '',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Instagram link */
   $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
   $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
@@ -6359,6 +7587,11 @@ function views_view_views_default_views() {
     'class' => '',
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -6368,6 +7601,14 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'training' => 'training',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 1;
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -6376,6 +7617,7 @@ function views_view_views_default_views() {
     'linkedin' => 'linkedin',
     'tweet' => 'tweet',
   );
+  $handler->display->display_options['filters']['type']['group'] = 2;
   /* Filter criterion: Content: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
@@ -6384,6 +7626,7 @@ function views_view_views_default_views() {
     0 => '72',
     1 => '71',
   );
+  $handler->display->display_options['filters']['tid']['group'] = 2;
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
   $handler->display->display_options['block_description'] = 'Training Social Stream';
 
@@ -6392,6 +7635,13 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Performance Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Tweet link */
   $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
   $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
@@ -6425,6 +7675,35 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_instagram_link']['settings'] = array(
     'class' => '',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Instagram Picture */
   $handler->display->display_options['fields']['field_instagram_picture']['id'] = 'field_instagram_picture';
   $handler->display->display_options['fields']['field_instagram_picture']['table'] = 'field_data_field_instagram_picture';
@@ -6574,15 +7853,22 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Environment Feed';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Instagram link */
-  $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
-  $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
-  $handler->display->display_options['fields']['field_instagram_link']['field'] = 'field_instagram_link';
-  $handler->display->display_options['fields']['field_instagram_link']['label'] = '';
-  $handler->display->display_options['fields']['field_instagram_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_instagram_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_instagram_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_instagram_link']['settings'] = array(
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Tweet link */
+  $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
+  $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
+  $handler->display->display_options['fields']['field_tweet_link']['field'] = 'field_tweet_link';
+  $handler->display->display_options['fields']['field_tweet_link']['label'] = '';
+  $handler->display->display_options['fields']['field_tweet_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_tweet_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tweet_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
     'class' => '',
   );
   /* Field: Content: Linkedin update link */
@@ -6596,17 +7882,46 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_linkedin_update_link']['settings'] = array(
     'class' => '',
   );
-  /* Field: Content: Tweet link */
-  $handler->display->display_options['fields']['field_tweet_link']['id'] = 'field_tweet_link';
-  $handler->display->display_options['fields']['field_tweet_link']['table'] = 'field_data_field_tweet_link';
-  $handler->display->display_options['fields']['field_tweet_link']['field'] = 'field_tweet_link';
-  $handler->display->display_options['fields']['field_tweet_link']['label'] = '';
-  $handler->display->display_options['fields']['field_tweet_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_tweet_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_tweet_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
+  /* Field: Content: Instagram link */
+  $handler->display->display_options['fields']['field_instagram_link']['id'] = 'field_instagram_link';
+  $handler->display->display_options['fields']['field_instagram_link']['table'] = 'field_data_field_instagram_link';
+  $handler->display->display_options['fields']['field_instagram_link']['field'] = 'field_instagram_link';
+  $handler->display->display_options['fields']['field_instagram_link']['label'] = '';
+  $handler->display->display_options['fields']['field_instagram_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_instagram_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_instagram_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_instagram_link']['settings'] = array(
     'class' => '',
   );
+  /* Field: Content: Article Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<div class="image-link">
+<div class="social-box">
+[field_image]
+<div class="black-fade">
+<div class="overlay-caption text-center">
+<p>
+<span class="social-font">
+</span>
+</div>
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_image']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: Content: Instagram Picture */
   $handler->display->display_options['fields']['field_instagram_picture']['id'] = 'field_instagram_picture';
   $handler->display->display_options['fields']['field_instagram_picture']['table'] = 'field_data_field_instagram_picture';
