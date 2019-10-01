@@ -44,7 +44,7 @@ function node_fe_node_info() {
     'locations' => array(
       'name' => t('Locations'),
       'base' => 'node_content',
-      'description' => t('Used for location data'),
+      'description' => t('Used for location data '),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -85,6 +85,14 @@ function node_fe_node_info() {
       'name' => t('Success Stories'),
       'base' => 'node_content',
       'description' => t('For short example case studies (around 100 words)'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'training' => array(
+      'name' => t('Training'),
+      'base' => 'node_content',
+      'description' => t('For Training courses in there respective countries'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
