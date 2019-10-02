@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * views_view_fe.views_default.inc
+ * views_view.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function views_view_fe_views_default_views() {
+function views_view_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -487,6 +487,18 @@ function views_view_fe_views_default_views() {
     'image_link' => '',
     'class' => '',
   );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -853,11 +865,11 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 text-center row-deep"> 
-<div class="col-sm-6"><p>These are the most recent news stories locally and nationally click through on the link to find a combination of news stories and social media posts</p> 
+  $handler->display->display_options['empty']['area']['content'] = '<div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 text-center row-deep">
+<div class="col-sm-6"><p>These are the most recent news stories locally and nationally click through on the link to find a combination of news stories and social media posts</p>
 </div>
-<div class="col-sm-6"> 
-    <a href="/news" class="btn btn-lg btn-blue" role="button" target="_self">Read All News</a> 
+<div class="col-sm-6">
+    <a href="/news" class="btn btn-lg btn-blue" role="button" target="_self">Read All News</a>
 </div>
 </div>';
   $handler->display->display_options['empty']['area']['format'] = 'ck_editor';
@@ -1121,11 +1133,11 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['label'] = 'all news button';
-  $handler->display->display_options['footer']['area']['content'] = '<div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 text-center row-deep"> 
-<div class="col-sm-6"><p>These are the most recent news stories locally and nationally click through on the link to find a combination of news stories and social media posts</p> 
+  $handler->display->display_options['footer']['area']['content'] = '<div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 text-center row-deep">
+<div class="col-sm-6"><p>These are the most recent news stories locally and nationally click through on the link to find a combination of news stories and social media posts</p>
 </div>
-<div class="col-sm-6"> 
-    <a href="/news" class="btn btn-lg btn-blue" role="button" target="_self" title="Read All News">Read All News</a> 
+<div class="col-sm-6">
+    <a href="/news" class="btn btn-lg btn-blue" role="button" target="_self" title="Read All News">Read All News</a>
 </div>
 </div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
@@ -2381,6 +2393,18 @@ function views_view_fe_views_default_views() {
     'image_link' => '',
     'class' => '',
   );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
   /* Field: Content: Thumbnail */
   $handler->display->display_options['fields']['field_thumbnail']['id'] = 'field_thumbnail';
   $handler->display->display_options['fields']['field_thumbnail']['table'] = 'field_data_field_thumbnail';
@@ -2695,6 +2719,18 @@ function views_view_fe_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -2829,6 +2865,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
@@ -2884,6 +2922,18 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['fields']['field_tweet_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tweet_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_tweet_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
     'class' => '',
   );
   /* Field: Content: Instagram Picture */
@@ -3065,23 +3115,18 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
-  $handler->display->display_options['filters']['type_1']['table'] = 'node';
-  $handler->display->display_options['filters']['type_1']['field'] = 'type';
-  $handler->display->display_options['filters']['type_1']['value'] = array(
-    'job_vacancies' => 'job_vacancies',
-  );
-  $handler->display->display_options['filters']['type_1']['group'] = 1;
-  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
+    'job_vacancies' => 'job_vacancies',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
-  $handler->display->display_options['filters']['type']['group'] = 2;
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Has taxonomy terms (with depth) */
   $handler->display->display_options['filters']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['filters']['term_node_tid_depth']['table'] = 'node';
@@ -3089,9 +3134,17 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth']['value'] = array(
     0 => '67',
   );
-  $handler->display->display_options['filters']['term_node_tid_depth']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth']['group'] = 1;
   $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'tags';
   $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '1';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'job_vacancies' => 'job_vacancies',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 2;
   $handler->display->display_options['block_description'] = 'Careers Social Stream - Mobile';
 
   /* Display: Our Company - Awards Feed */
@@ -3165,6 +3218,18 @@ function views_view_fe_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
@@ -3300,6 +3365,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
@@ -3383,6 +3450,18 @@ function views_view_fe_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
@@ -3515,6 +3594,9 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
+    'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
@@ -3599,6 +3681,18 @@ function views_view_fe_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
@@ -3733,23 +3827,18 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
-  $handler->display->display_options['filters']['type_1']['table'] = 'node';
-  $handler->display->display_options['filters']['type_1']['field'] = 'type';
-  $handler->display->display_options['filters']['type_1']['value'] = array(
-    'training' => 'training',
-  );
-  $handler->display->display_options['filters']['type_1']['group'] = 1;
-  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
+    'training' => 'training',
     'tweet' => 'tweet',
   );
-  $handler->display->display_options['filters']['type']['group'] = 2;
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
@@ -3757,8 +3846,16 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['tid']['value'] = array(
     0 => '71',
   );
-  $handler->display->display_options['filters']['tid']['group'] = 2;
+  $handler->display->display_options['filters']['tid']['group'] = 1;
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'training' => 'training',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 2;
   $handler->display->display_options['block_description'] = 'Training Social Stream - Mobile';
 
   /* Display: Product - Performance Feed */
@@ -3832,6 +3929,18 @@ function views_view_fe_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
@@ -3967,6 +4076,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
@@ -4051,6 +4162,18 @@ function views_view_fe_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -4185,6 +4308,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
@@ -6274,8 +6399,10 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'page' => 'page',
     'case_studies' => 'case_studies',
+    'job_vacancies' => 'job_vacancies',
     'news' => 'news',
     'product_range' => 'product_range',
+    'training' => 'training',
   );
   /* Filter criterion: Content: Language */
   $handler->display->display_options['filters']['language']['id'] = 'language';
@@ -6391,6 +6518,7 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '12';
@@ -6552,6 +6680,18 @@ function views_view_fe_views_default_views() {
     'image_link' => '',
     'class' => 'img-adaptive',
   );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
   $handler->display->display_options['fields']['field_linkedin_picture']['table'] = 'field_data_field_linkedin_picture';
@@ -6666,17 +6806,27 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
-  /* Filter criterion: Content: Has taxonomy term */
-  $handler->display->display_options['filters']['tid']['id'] = 'tid';
-  $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['filters']['tid']['field'] = 'tid';
-  $handler->display->display_options['filters']['tid']['value'] = array(
-    0 => '1',
-    1 => '60',
+  /* Filter criterion: Content: Has taxonomy term (translated) */
+  $handler->display->display_options['filters']['tid_i18n']['id'] = 'tid_i18n';
+  $handler->display->display_options['filters']['tid_i18n']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid_i18n']['field'] = 'tid_i18n';
+  $handler->display->display_options['filters']['tid_i18n']['value'] = array(
+    60 => '60',
+    1 => '1',
   );
-  $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
+  $handler->display->display_options['filters']['tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['tid_i18n']['vocabulary'] = 'tags';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
   $handler->display->display_options['block_description'] = 'Community Social Stream';
 
   /* Display: Our Company - Careers Feed */
@@ -6787,6 +6937,18 @@ function views_view_fe_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
@@ -6944,6 +7106,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   $handler->display->display_options['filters']['type']['group'] = 2;
@@ -7030,6 +7194,18 @@ function views_view_fe_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
@@ -7165,6 +7341,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
@@ -7248,6 +7426,18 @@ function views_view_fe_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Article Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
@@ -7383,6 +7573,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
@@ -7496,6 +7688,18 @@ function views_view_fe_views_default_views() {
     'image_style' => '',
     'image_link' => '',
     'class' => 'img-adaptive',
+  );
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Picture */
   $handler->display->display_options['fields']['field_linkedin_picture']['id'] = 'field_linkedin_picture';
@@ -7615,6 +7819,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   $handler->display->display_options['filters']['type']['group'] = 2;
@@ -7704,6 +7910,18 @@ function views_view_fe_views_default_views() {
     'class' => '',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
   /* Field: Content: Instagram Picture */
   $handler->display->display_options['fields']['field_instagram_picture']['id'] = 'field_instagram_picture';
   $handler->display->display_options['fields']['field_instagram_picture']['table'] = 'field_data_field_instagram_picture';
@@ -7836,6 +8054,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
@@ -7922,6 +8142,18 @@ function views_view_fe_views_default_views() {
     'class' => '',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Field: Content: Success Story Image */
+  $handler->display->display_options['fields']['field_success_story_image']['id'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['table'] = 'field_data_field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['field'] = 'field_success_story_image';
+  $handler->display->display_options['fields']['field_success_story_image']['label'] = '';
+  $handler->display->display_options['fields']['field_success_story_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_success_story_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_success_story_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'class' => '',
+  );
   /* Field: Content: Instagram Picture */
   $handler->display->display_options['fields']['field_instagram_picture']['id'] = 'field_instagram_picture';
   $handler->display->display_options['fields']['field_instagram_picture']['table'] = 'field_data_field_instagram_picture';
@@ -8054,6 +8286,8 @@ function views_view_fe_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instagram' => 'instagram',
     'linkedin' => 'linkedin',
+    'news' => 'news',
+    'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
   /* Filter criterion: Content: Has taxonomy term */
