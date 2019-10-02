@@ -495,6 +495,28 @@ function field_base_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_course_location'.
+  $field_bases['field_course_location'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_course_location',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_current_page_title'.
   $field_bases['field_current_page_title'] = array(
     'active' => 1,
@@ -646,6 +668,32 @@ function field_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_employment_type'.
+  $field_bases['field_employment_type'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_employment_type',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Full Time' => 'Full Time',
+        'Part Time' => 'Part Time',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_external_link'.
@@ -1106,6 +1154,70 @@ function field_base_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_job_duties'.
+  $field_bases['field_job_duties'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_job_duties',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_job_purpose'.
+  $field_bases['field_job_purpose'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_job_purpose',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_job_ref'.
+  $field_bases['field_job_ref'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_job_ref',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_last_name'.
   $field_bases['field_last_name'] = array(
     'active' => 1,
@@ -1307,12 +1419,12 @@ function field_base_field_default_field_bases() {
             ),
             'city' => array(
               'collect' => 1,
-              'default' => 'Rotherham',
+              'default' => '',
               'weight' => 8,
             ),
             'country' => array(
               'collect' => 1,
-              'default' => 'gb',
+              'default' => 'xx',
               'weight' => 14,
             ),
             'email' => array(
@@ -1326,7 +1438,7 @@ function field_base_field_default_field_bases() {
             ),
             'name' => array(
               'collect' => 1,
-              'default' => 'AESSEAL Headquarters',
+              'default' => '',
               'weight' => 2,
             ),
             'phone' => array(
@@ -1336,7 +1448,7 @@ function field_base_field_default_field_bases() {
             ),
             'postal_code' => array(
               'collect' => 1,
-              'default' => 'S60 1BZ',
+              'default' => '',
               'weight' => 12,
             ),
             'province' => array(
@@ -1347,7 +1459,7 @@ function field_base_field_default_field_bases() {
             ),
             'street' => array(
               'collect' => 1,
-              'default' => 'Mill Close',
+              'default' => '',
               'weight' => 4,
             ),
           ),
@@ -1434,6 +1546,31 @@ function field_base_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_org_chart'.
+  $field_bases['field_org_chart'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_org_chart',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'image',
+    'settings' => array(
+      'default_image' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'image',
+  );
+
   // Exported field_base: 'field_organisation'.
   $field_bases['field_organisation'] = array(
     'active' => 1,
@@ -1454,6 +1591,27 @@ function field_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_person_spec'.
+  $field_bases['field_person_spec'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_person_spec',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_phone'.
@@ -1531,7 +1689,7 @@ function field_base_field_default_field_bases() {
   // Exported field_base: 'field_product_image'.
   $field_bases['field_product_image'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_product_image',
@@ -1577,7 +1735,7 @@ function field_base_field_default_field_bases() {
   // Exported field_base: 'field_reference'.
   $field_bases['field_reference'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_reference',
@@ -1626,6 +1784,37 @@ function field_base_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_seniority_level'.
+  $field_bases['field_seniority_level'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_seniority_level',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Director' => 'Director',
+        'Senior Manager' => 'Senior Manager',
+        'Manager' => 'Manager',
+        'Team Leader' => 'Team Leader',
+        'Associate' => 'Associate',
+        'Trainee' => 'Trainee',
+        'Apprentice' => 'Apprentice',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_social_icon'.
   $field_bases['field_social_icon'] = array(
     'active' => 1,
@@ -1670,6 +1859,31 @@ function field_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'social_profile_field_url',
+  );
+
+  // Exported field_base: 'field_success_story_image'.
+  $field_bases['field_success_story_image'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_success_story_image',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'image',
+    'settings' => array(
+      'default_image' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'image',
   );
 
   // Exported field_base: 'field_tags'.

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the Field Group feature.
+ * Code for the Field Groups feature.
  */
 
 include_once 'field_group_fe.features.inc';

@@ -270,9 +270,8 @@ function field_group_fe_field_group_info() {
       2 => 'field_document',
       3 => 'field_industry',
       4 => 'field_api__plan_types',
-      5 => 'field_reference',
-      6 => 'field_case_ref',
-      7 => 'group_rowimages',
+      5 => 'field_case_ref',
+      6 => 'group_rowimages',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -525,6 +524,66 @@ function field_group_fe_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_col_one|node|job_vacancies|default';
+  $field_group->group_name = 'group_col_one';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'job_vacancies';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_row_one';
+  $field_group->data = array(
+    'label' => 'col 1',
+    'weight' => '29',
+    'children' => array(
+      0 => 'field_seniority_level',
+    ),
+    'format_type' => 'html-element',
+    'format_settings' => array(
+      'label' => 'col 1',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-col-one field-group-html-element col-sm-6',
+        'element' => 'div',
+        'show_label' => '0',
+        'label_element' => 'div',
+        'attributes' => '',
+      ),
+    ),
+  );
+  $field_groups['group_col_one|node|job_vacancies|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_col_two|node|job_vacancies|default';
+  $field_group->group_name = 'group_col_two';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'job_vacancies';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_row_one';
+  $field_group->data = array(
+    'label' => 'col 2',
+    'weight' => '30',
+    'children' => array(
+      0 => 'field_employment_type',
+    ),
+    'format_type' => 'html-element',
+    'format_settings' => array(
+      'label' => 'col 2',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-col-two field-group-html-element col-sm-6',
+        'element' => 'div',
+        'show_label' => '0',
+        'label_element' => 'div',
+        'attributes' => '',
+      ),
+    ),
+  );
+  $field_groups['group_col_two|node|job_vacancies|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_colimages|node|case_studies|default';
   $field_group->group_name = 'group_colimages';
   $field_group->entity_type = 'node';
@@ -535,24 +594,63 @@ function field_group_fe_field_group_info() {
     'label' => 'collimages',
     'weight' => '18',
     'children' => array(
-      0 => 'field_product_image',
+      0 => 'field_reference',
+      1 => 'field_product_image',
     ),
-    'format_type' => 'div',
+    'format_type' => 'html-element',
     'format_settings' => array(
       'label' => 'collimages',
       'instance_settings' => array(
         'id' => '',
-        'classes' => 'group-colimages field-group-div col-sm-12',
-        'description' => '',
-        'show_label' => '1',
-        'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
+        'classes' => 'col-sm-12',
+        'element' => 'div',
+        'show_label' => '0',
+        'label_element' => 'div',
+        'attributes' => '',
+        'required_fields' => 1,
       ),
-      'formatter' => 'collapsible',
+      'formatter' => '',
     ),
   );
   $field_groups['group_colimages|node|case_studies|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_col|node|job_vacancies|default';
+  $field_group->group_name = 'group_col';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'job_vacancies';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_row';
+  $field_group->data = array(
+    'label' => 'col',
+    'weight' => '16',
+    'children' => array(
+      0 => 'body',
+      1 => 'field_external_link',
+      2 => 'field_document',
+      3 => 'field_org_chart',
+      4 => 'field_job_ref',
+      5 => 'field_job_duties',
+      6 => 'field_job_purpose',
+      7 => 'field_person_spec',
+      8 => 'group_row_one',
+    ),
+    'format_type' => 'html-element',
+    'format_settings' => array(
+      'label' => 'col',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-col field-group-html-element col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2',
+        'element' => 'div',
+        'show_label' => '0',
+        'label_element' => 'div',
+        'attributes' => '',
+      ),
+    ),
+  );
+  $field_groups['group_col|node|job_vacancies|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1080,6 +1178,37 @@ function field_group_fe_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_row_one|node|job_vacancies|default';
+  $field_group->group_name = 'group_row_one';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'job_vacancies';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_col';
+  $field_group->data = array(
+    'label' => 'row 1',
+    'weight' => '18',
+    'children' => array(
+      0 => 'group_col_one',
+      1 => 'group_col_two',
+    ),
+    'format_type' => 'html-element',
+    'format_settings' => array(
+      'label' => 'row 1',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-row-one field-group-html-element row padding-top padding-bottom',
+        'element' => 'div',
+        'show_label' => '0',
+        'label_element' => 'div',
+        'attributes' => '',
+      ),
+    ),
+  );
+  $field_groups['group_row_one|node|job_vacancies|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_rowimages|node|case_studies|default';
   $field_group->group_name = 'group_rowimages';
   $field_group->entity_type = 'node';
@@ -1088,23 +1217,23 @@ function field_group_fe_field_group_info() {
   $field_group->parent_name = 'group_col10';
   $field_group->data = array(
     'label' => 'row-images',
-    'weight' => '11',
+    'weight' => '12',
     'children' => array(
       0 => 'group_colimages',
     ),
-    'format_type' => 'div',
+    'format_type' => 'html-element',
     'format_settings' => array(
       'label' => 'row-images',
       'instance_settings' => array(
         'id' => '',
-        'classes' => 'group-rowimages field-group-div row',
-        'description' => '',
-        'show_label' => '1',
-        'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
+        'classes' => 'row',
+        'element' => 'div',
+        'show_label' => '0',
+        'label_element' => 'div',
+        'attributes' => '',
+        'required_fields' => 1,
       ),
-      'formatter' => 'collapsible',
+      'formatter' => '',
     ),
   );
   $field_groups['group_rowimages|node|case_studies|default'] = $field_group;
@@ -1393,6 +1522,36 @@ function field_group_fe_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_row|node|job_vacancies|default';
+  $field_group->group_name = 'group_row';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'job_vacancies';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'row',
+    'weight' => '0',
+    'children' => array(
+      0 => 'group_col',
+    ),
+    'format_type' => 'html-element',
+    'format_settings' => array(
+      'label' => 'row',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-row field-group-html-element row',
+        'element' => 'div',
+        'show_label' => '0',
+        'label_element' => 'div',
+        'attributes' => '',
+      ),
+    ),
+  );
+  $field_groups['group_row|node|job_vacancies|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_row|node|locations|default';
   $field_group->group_name = 'group_row';
   $field_group->entity_type = 'node';
@@ -1577,6 +1736,8 @@ function field_group_fe_field_group_info() {
   t('Language');
   t('Supplementary');
   t('col');
+  t('col 1');
+  t('col 2');
   t('col-');
   t('col-sm-10');
   t('col6left');

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * field_group_fe.features.inc
+ * field_group_fez.features.inc
  */
 
 /**

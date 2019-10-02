@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * field_instances.features.field_instance.inc
+ * field_instance.features.field_instance.inc
  */
 
 /**
@@ -322,6 +322,40 @@ function field_instance_field_default_field_instances() {
   // 'comment-comment_node_success_stories-comment_body'.
   $field_instances['comment-comment_node_success_stories-comment_body'] = array(
     'bundle' => 'comment_node_success_stories',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'comment',
+    'field_name' => 'comment_body',
+    'label' => 'Comment',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'comment-comment_node_training-comment_body'.
+  $field_instances['comment-comment_node_training-comment_body'] = array(
+    'bundle' => 'comment_node_training',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -2111,7 +2145,7 @@ function field_instance_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 12,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2391,7 +2425,7 @@ function field_instance_field_default_field_instances() {
     'label' => 'Case Study Products',
     'required' => 0,
     'settings' => array(
-      'alt_field' => 0,
+      'alt_field' => 1,
       'default_image' => 0,
       'entity_translation_sync' => FALSE,
       'file_directory' => 'fields/field_product_image',
@@ -2440,7 +2474,7 @@ function field_instance_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 13,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2469,7 +2503,7 @@ function field_instance_field_default_field_instances() {
       'enable_tokens' => 1,
       'entity_translation_sync' => FALSE,
       'rel_remove' => 'default',
-      'title' => 'none',
+      'title' => 'optional',
       'title_label_use_field_label' => 0,
       'title_maxlength' => 128,
       'title_value' => '',
@@ -2928,14 +2962,14 @@ function field_instance_field_default_field_instances() {
     'bundle' => 'job_vacancies',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Please be aware that after 600 characters the text will be cut off.',
+    'description' => 'For a small job summary. Please be aware that after 600 characters the text will be cut off.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -2961,11 +2995,11 @@ function field_instance_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 20,
+        'rows' => 5,
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -2978,10 +3012,9 @@ function field_instance_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 3,
+        'type' => 'hidden',
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3006,7 +3039,7 @@ function field_instance_field_default_field_instances() {
         'name_as_title' => 1,
       ),
       'type' => 'workflow_default',
-      'weight' => 9,
+      'weight' => 17,
     ),
   );
 
@@ -3017,11 +3050,11 @@ function field_instance_field_default_field_instances() {
     'description' => 'Use this field if you need to upload the job description',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
-        'weight' => 4,
+        'weight' => 24,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3049,7 +3082,46 @@ function field_instance_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 6,
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance: 'node-job_vacancies-field_employment_type'.
+  $field_instances['node-job_vacancies-field_employment_type'] = array(
+    'bundle' => 'job_vacancies',
+    'default_value' => NULL,
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 20,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_employment_type',
+    'label' => 'Employment Type',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 7,
     ),
   );
 
@@ -3061,11 +3133,11 @@ function field_instance_field_default_field_instances() {
     'description' => 'Use this field if you have an external URL for the job posting',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 1,
+        'weight' => 23,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3107,15 +3179,138 @@ function field_instance_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 14,
     ),
   );
 
-  // Exported field_instance: 'node-job_vacancies-field_social_icon'.
-  $field_instances['node-job_vacancies-field_social_icon'] = array(
+  // Exported field_instance: 'node-job_vacancies-field_job_duties'.
+  $field_instances['node-job_vacancies-field_job_duties'] = array(
+    'bundle' => 'job_vacancies',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 20,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_job_duties',
+    'label' => 'Job Duties',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 10,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'node-job_vacancies-field_job_purpose'.
+  $field_instances['node-job_vacancies-field_job_purpose'] = array(
+    'bundle' => 'job_vacancies',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 19,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_job_purpose',
+    'label' => 'Job Purpose',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 10,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-job_vacancies-field_job_ref'.
+  $field_instances['node-job_vacancies-field_job_ref'] = array(
+    'bundle' => 'job_vacancies',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'For the Job Vacancy reference number',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 26,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_job_ref',
+    'label' => 'Job Ref',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-job_vacancies-field_org_chart'.
+  $field_instances['node-job_vacancies-field_org_chart'] = array(
     'bundle' => 'job_vacancies',
     'deleted' => 0,
-    'description' => 'Do NOT add an image for the social icon as one is already provided',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -3126,7 +3321,134 @@ function field_instance_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 2,
+        'weight' => 22,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_org_chart',
+    'label' => 'Org Chart',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 1,
+      'default_image' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => 'fields/org_chart',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '2MB',
+      'max_resolution' => '512x512',
+      'min_resolution' => '',
+      'title_field' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance: 'node-job_vacancies-field_person_spec'.
+  $field_instances['node-job_vacancies-field_person_spec'] = array(
+    'bundle' => 'job_vacancies',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 21,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_person_spec',
+    'label' => 'Person Specification',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 10,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'node-job_vacancies-field_seniority_level'.
+  $field_instances['node-job_vacancies-field_seniority_level'] = array(
+    'bundle' => 'job_vacancies',
+    'default_value' => NULL,
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => 'Choose the level of the position',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 19,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_seniority_level',
+    'label' => 'Seniority Level',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-job_vacancies-field_social_icon'.
+  $field_instances['node-job_vacancies-field_social_icon'] = array(
+    'bundle' => 'job_vacancies',
+    'deleted' => 0,
+    'description' => 'Do NOT add an image for the social icon as one is already provided',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3159,7 +3481,7 @@ function field_instance_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 7,
+      'weight' => 16,
     ),
   );
 
@@ -3387,20 +3709,21 @@ function field_instance_field_default_field_instances() {
       'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
+        'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
         'target' => '_blank',
         'title' => '',
       ),
       'display' => array(
-        'url_cutoff' => 80,
+        'url_cutoff' => 255,
       ),
       'enable_tokens' => 1,
       'entity_translation_sync' => FALSE,
       'rel_remove' => 'default',
       'title' => 'none',
-      'title_label_use_field_label' => FALSE,
-      'title_maxlength' => 128,
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 255,
       'title_value' => '',
       'url' => 0,
       'user_register_form' => FALSE,
@@ -5335,7 +5658,7 @@ function field_instance_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 6,
+      'weight' => 8,
     ),
   );
 
@@ -5377,7 +5700,7 @@ function field_instance_field_default_field_instances() {
         'name_as_title' => 1,
       ),
       'type' => 'workflow_default',
-      'weight' => 9,
+      'weight' => 12,
     ),
   );
 
@@ -5416,7 +5739,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 8,
+      'weight' => 10,
     ),
   );
 
@@ -5468,7 +5791,112 @@ function field_instance_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 1,
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-success_stories-field_success_story_image'.
+  $field_instances['node-success_stories-field_success_story_image'] = array(
+    'bundle' => 'success_stories',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'class' => '',
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_success_story_image',
+    'label' => 'Success Story Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 1,
+      'default_image' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => 'fields/field_success_story_image',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '2MB',
+      'max_resolution' => '1080x1080',
+      'min_resolution' => '',
+      'title_field' => 1,
+      'user_register_form' => FALSE,
+      'wysiwyg_insert' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'private' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'upload' => 0,
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-success_stories-field_tags'.
+  $field_instances['node-success_stories-field_tags'] = array(
+    'bundle' => 'success_stories',
+    'default_value' => NULL,
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_tags',
+    'label' => 'Tags',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 11,
     ),
   );
 
@@ -5507,7 +5935,93 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 7,
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-training-body'.
+  $field_instances['node-training-body'] = array(
+    'bundle' => 'training',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Body',
+    'required' => FALSE,
+    'settings' => array(
+      'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-training-field_course_location'.
+  $field_instances['node-training-field_course_location'] = array(
+    'bundle' => 'training',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Input the Course Locations',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_location',
+    'label' => 'Course Location',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 5,
     ),
   );
 
@@ -6457,21 +6971,26 @@ function field_instance_field_default_field_instances() {
   t('Case Ref');
   t('Case Study Products');
   t('Check the box if this resource delivered by a Hubspot email. If the resource is downloaded from the site leave the box unchecked.');
+  t('Choose the level of the position');
   t('Click to Download');
   t('Comment');
   t('Company');
   t('Continent');
   t('Country');
+  t('Course Location');
   t('Current Page Title');
   t('Description');
   t('Do NOT add a image to this section as it will override the banner image on the page');
   t('Do NOT add an image for the social icon as one is already provided');
   t('Email');
   t('Email Address');
+  t('Employment Type');
   t('External Path');
   t('External id');
   t('First Name');
   t('Flex-image');
+  t('For a small job summary. Please be aware that after 600 characters the text will be cut off.');
+  t('For the Job Vacancy reference number');
   t('Form Display');
   t('Hidden Form URL');
   t('I agree to allow AESSEAL to store and process my personal data.');
@@ -6480,18 +6999,23 @@ function field_instance_field_default_field_instances() {
   t('Image');
   t('Industry');
   t('Industry image');
+  t('Input the Course Locations');
   t('Instagram Picture');
   t('Instagram link');
+  t('Job Duties');
+  t('Job Purpose');
+  t('Job Ref');
   t('Job Role');
   t('Last Name');
   t('Linkedin link');
   t('Linkedin update link');
   t('Location');
   t('Opening Hours');
+  t('Org Chart');
   t('Organisation');
   t('Paste in you social media profile like here, and they will be generated in key places throughout the site. ');
+  t('Person Specification');
   t('Picture');
-  t('Please be aware that after 600 characters the text will be cut off.');
   t('Please input what location type, so it can be filtered from the main user option. Multiple values are permitted.');
   t('Please note where the translation for the article came from');
   t('Please provide the details of where the translation for the page was provided from e.g.Translation can be found (for page and block) on pg 5 of the LN-DE-CORP-03.pdf');
@@ -6503,7 +7027,9 @@ function field_instance_field_default_field_instances() {
   t('Product Image');
   t('Question');
   t('Related Products ');
+  t('Seniority Level');
   t('Social Links');
+  t('Success Story Image');
   t('Tags');
   t('Telephone');
   t('This is for bullet pointed features. This will add a 50/50 column split on the page between the bullet points and product image.');
