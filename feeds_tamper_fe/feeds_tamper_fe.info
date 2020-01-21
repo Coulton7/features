@@ -1,9 +1,11 @@
-name = feeds tamper
+name = Feeds Tamper
+description = All Feeds Tamper
 core = 7.x
 package = Features
-version = 7.x-1.0
+version = 7.x-1.1
 features[ctools][] = feeds_tamper:feeds_tamper_default:2
 features[features_api][] = api:2
 features[feeds_tamper][] = location_importer-location_type-explode
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][feeds_tamper] = feeds_tamper
+no autodetect = 1
