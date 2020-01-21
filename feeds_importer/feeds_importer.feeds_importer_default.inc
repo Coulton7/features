@@ -211,7 +211,7 @@ function feeds_importer_feeds_importer_default() {
           ),
         ),
         'insert_new' => '1',
-        'update_existing' => '2',
+        'update_existing' => '1',
         'update_non_existent' => 'delete',
         'input_format' => 'plain_text',
         'skip_hash_check' => 0,

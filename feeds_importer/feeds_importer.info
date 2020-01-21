@@ -1,8 +1,8 @@
-name = Feeds
-description = All Feeds Importer
+name = All Feeds Importer
+description = All feeds importers on the site
 core = 7.x
 package = Features
-version = 7.x-1.0
+version = 7.x-1.1
 features[ctools][] = feeds:feeds_importer_default:1
 features[ctools][] = feeds_tamper:feeds_tamper_default:2
 features[features_api][] = api:2
