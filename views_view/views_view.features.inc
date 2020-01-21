@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * views_view_fe.features.inc
+ * views_views.features.inc
  */
 
 /**
