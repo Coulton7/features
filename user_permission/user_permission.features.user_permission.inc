@@ -583,6 +583,15 @@ function user_permission_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'administer quicktabs'.
+  $permissions['administer quicktabs'] = array(
+    'name' => 'administer quicktabs',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'quicktabs',
+  );
+
   // Exported permission: 'administer redirects'.
   $permissions['administer redirects'] = array(
     'name' => 'administer redirects',
@@ -590,6 +599,15 @@ function user_permission_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'redirect',
+  );
+
+  // Exported permission: 'administer rh_file'.
+  $permissions['administer rh_file'] = array(
+    'name' => 'administer rh_file',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'rabbit_hole',
   );
 
   // Exported permission: 'administer rh_node'.
@@ -854,6 +872,15 @@ function user_permission_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'bypass rh_file'.
+  $permissions['bypass rh_file'] = array(
+    'name' => 'bypass rh_file',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'rabbit_hole',
+  );
+
   // Exported permission: 'bypass rh_node'.
   $permissions['bypass rh_node'] = array(
     'name' => 'bypass rh_node',
@@ -1062,6 +1089,13 @@ function user_permission_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create training_events content'.
+  $permissions['create training_events content'] = array(
+    'name' => 'create training_events content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create translation jobs'.
   $permissions['create translation jobs'] = array(
     'name' => 'create translation jobs',
@@ -1159,6 +1193,13 @@ function user_permission_user_default_permissions() {
     'module' => 'tvi',
   );
 
+  // Exported permission: 'define view for terms in training_courses'.
+  $permissions['define view for terms in training_courses'] = array(
+    'name' => 'define view for terms in training_courses',
+    'roles' => array(),
+    'module' => 'tvi',
+  );
+
   // Exported permission: 'define view for vocabulary continent'.
   $permissions['define view for vocabulary continent'] = array(
     'name' => 'define view for vocabulary continent',
@@ -1199,6 +1240,13 @@ function user_permission_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
     ),
+    'module' => 'tvi',
+  );
+
+  // Exported permission: 'define view for vocabulary training_courses'.
+  $permissions['define view for vocabulary training_courses'] = array(
+    'name' => 'define view for vocabulary training_courses',
+    'roles' => array(),
     'module' => 'tvi',
   );
 
@@ -1338,6 +1386,13 @@ function user_permission_user_default_permissions() {
       'administrator' => 'administrator',
       'publisher user' => 'publisher user',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any training_events content'.
+  $permissions['delete any training_events content'] = array(
+    'name' => 'delete any training_events content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -1537,6 +1592,13 @@ function user_permission_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own training_events content'.
+  $permissions['delete own training_events content'] = array(
+    'name' => 'delete own training_events content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own tweet content'.
   $permissions['delete own tweet content'] = array(
     'name' => 'delete own tweet content',
@@ -1621,6 +1683,13 @@ function user_permission_user_default_permissions() {
       'editor user' => 'editor user',
       'publisher user' => 'publisher user',
     ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'delete terms in training_courses'.
+  $permissions['delete terms in training_courses'] = array(
+    'name' => 'delete terms in training_courses',
+    'roles' => array(),
     'module' => 'taxonomy',
   );
 
@@ -1867,6 +1936,13 @@ function user_permission_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any training_events content'.
+  $permissions['edit any training_events content'] = array(
+    'name' => 'edit any training_events content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any tweet content'.
   $permissions['edit any tweet content'] = array(
     'name' => 'edit any tweet content',
@@ -2082,6 +2158,13 @@ function user_permission_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own training_events content'.
+  $permissions['edit own training_events content'] = array(
+    'name' => 'edit own training_events content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own tweet content'.
   $permissions['edit own tweet content'] = array(
     'name' => 'edit own tweet content',
@@ -2156,6 +2239,13 @@ function user_permission_user_default_permissions() {
       'moderator user' => 'moderator user',
       'publisher user' => 'publisher user',
     ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'edit terms in training_courses'.
+  $permissions['edit terms in training_courses'] = array(
+    'name' => 'edit terms in training_courses',
+    'roles' => array(),
     'module' => 'taxonomy',
   );
 
@@ -2278,6 +2368,15 @@ function user_permission_user_default_permissions() {
       'publisher user' => 'publisher user',
     ),
     'module' => 'backup_migrate',
+  );
+
+  // Exported permission: 'php redirect rh_file'.
+  $permissions['php redirect rh_file'] = array(
+    'name' => 'php redirect rh_file',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'rabbit_hole',
   );
 
   // Exported permission: 'php redirect rh_node'.
@@ -2553,6 +2652,13 @@ function user_permission_user_default_permissions() {
       'administrator' => 'administrator',
       'translator user' => 'translator user',
     ),
+    'module' => 'entity_translation',
+  );
+
+  // Exported permission: 'translate user entities'.
+  $permissions['translate user entities'] = array(
+    'name' => 'translate user entities',
+    'roles' => array(),
     'module' => 'entity_translation',
   );
 
