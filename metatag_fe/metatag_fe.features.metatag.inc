@@ -15,7 +15,7 @@ function metatag_fe_metatag_export_default() {
     'instance' => 'global',
     'config' => array(
       'title' => array(
-        'value' => '[current-page:title] | [current-page:pager][site:slogan] [site:name]',
+        'value' => '[current-page:title] [current-page:pager]| [site:slogan] [site:name]',
       ),
       'description' => array(
         'value' => '',
