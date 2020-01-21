@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the All Quicktabs feature.
+ */
+
+include_once 'quicktabs_fe.features.inc';

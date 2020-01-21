@@ -1,0 +1,15 @@
+name = All Quicktabs
+description = All of the Quicktabs on the site
+core = 7.x
+package = Features
+version = 7.x-1.0
+features[ctools][] = quicktabs:quicktabs:1
+features[features_api][] = api:2
+features[quicktabs][] = branch_contact_info
+features[quicktabs][] = global_branches
+features[quicktabs][] = key_branch_contacts
+features[quicktabs][] = search_tabs
+features[quicktabs][] = your_regional_branch
+features_exclude[dependencies][ctools] = ctools
+features_exclude[dependencies][quicktabs] = quicktabs
+no autodetect = 1
