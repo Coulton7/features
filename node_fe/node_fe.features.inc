@@ -89,10 +89,10 @@ function node_fe_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'training' => array(
-      'name' => t('Training'),
+    'training_events' => array(
+      'name' => t('Training Events'),
       'base' => 'node_content',
-      'description' => t('For Training courses in there respective countries'),
+      'description' => t('For Training Events on the Training feed'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
