@@ -189,26 +189,6 @@ function menu_links_menu_default_menu_links() {
     'language' => 'tr',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_key-branches:location/key-branches.
-  $menu_links['main-menu_key-branches:location/key-branches'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'location/key-branches',
-    'router_path' => 'location/key-branches',
-    'link_title' => 'Key Branches',
-    'options' => array(
-      'alter' => TRUE,
-      'identifier' => 'main-menu_key-branches:location/key-branches',
-    ),
-    'module' => 'system',
-    'hidden' => 1,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -38,
-    'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-  );
   // Exported menu link: main-menu_konum:node/9915.
   $menu_links['main-menu_konum:node/9915'] = array(
     'menu_name' => 'main-menu',
@@ -976,6 +956,27 @@ function menu_links_menu_default_menu_links() {
     'language' => 'it',
     'menu_links_customized' => 1,
   );
+  // Exported menu link: menu-about-us_customer-service:node/10150.
+  $menu_links['menu-about-us_customer-service:node/10150'] = array(
+    'menu_name' => 'menu-about-us',
+    'link_path' => 'node/10150',
+    'router_path' => 'node/%',
+    'link_title' => 'Customer Service',
+    'options' => array(
+      'node_type' => 'page',
+      'alter' => TRUE,
+      'identifier' => 'menu-about-us_customer-service:node/10150',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'en',
+    'menu_links_customized' => 1,
+  );
   // Exported menu link: menu-about-us_dller:node/9919.
   $menu_links['menu-about-us_dller:node/9919'] = array(
     'menu_name' => 'menu-about-us',
@@ -1361,41 +1362,16 @@ function menu_links_menu_default_menu_links() {
     'language' => 'it',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: menu-locations_anahtar-ubeler:location/key-branches.
-  $menu_links['menu-locations_anahtar-ubeler:location/key-branches'] = array(
+  // Exported menu link: menu-locations_branches-mondiales:node/10152.
+  $menu_links['menu-locations_branches-mondiales:node/10152'] = array(
     'menu_name' => 'menu-locations',
-    'link_path' => 'location/key-branches',
-    'router_path' => 'location/key-branches',
-    'link_title' => 'Anahtar Şubeler',
+    'link_path' => 'node/10152',
+    'router_path' => 'node/%',
+    'link_title' => 'Branches Mondiales',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'node_type' => 'page',
       'alter' => TRUE,
-      'identifier' => 'menu-locations_anahtar-ubeler:location/key-branches',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-    'language' => 'tr',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: menu-locations_branches-cls:location/key-branches.
-  $menu_links['menu-locations_branches-cls:location/key-branches'] = array(
-    'menu_name' => 'menu-locations',
-    'link_path' => 'location/key-branches',
-    'router_path' => 'location/key-branches',
-    'link_title' => 'Branches clés',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-locations_branches-cls:location/key-branches',
+      'identifier' => 'menu-locations_branches-mondiales:node/10152',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -1473,41 +1449,16 @@ function menu_links_menu_default_menu_links() {
     'language' => 'tr',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: menu-locations_key-branches:location/key-branches.
-  $menu_links['menu-locations_key-branches:location/key-branches'] = array(
+  // Exported menu link: menu-locations_global-branches:node/10151.
+  $menu_links['menu-locations_global-branches:node/10151'] = array(
     'menu_name' => 'menu-locations',
-    'link_path' => 'location/key-branches',
-    'router_path' => 'location/key-branches',
-    'link_title' => 'Key Branches',
+    'link_path' => 'node/10151',
+    'router_path' => 'node/%',
+    'link_title' => 'Global Branches',
     'options' => array(
-      'attributes' => array(
-        'title' => 'Key Branches',
-      ),
+      'node_type' => 'page',
       'alter' => TRUE,
-      'identifier' => 'menu-locations_key-branches:location/key-branches',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -50,
-    'customized' => 1,
-    'language' => 'en',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: menu-locations_kluczowe-gazie:location/key-branches.
-  $menu_links['menu-locations_kluczowe-gazie:location/key-branches'] = array(
-    'menu_name' => 'menu-locations',
-    'link_path' => 'location/key-branches',
-    'router_path' => 'location/key-branches',
-    'link_title' => 'Kluczowe gałęzie',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-locations_kluczowe-gazie:location/key-branches',
+      'identifier' => 'menu-locations_global-branches:node/10151',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -1516,7 +1467,135 @@ function menu_links_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'language' => 'pl',
+    'language' => 'en',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-locations_global-grenar:node/10157.
+  $menu_links['menu-locations_global-grenar:node/10157'] = array(
+    'menu_name' => 'menu-locations',
+    'link_path' => 'node/10157',
+    'router_path' => 'node/%',
+    'link_title' => 'Global Grenar',
+    'options' => array(
+      'node_type' => 'page',
+      'alter' => TRUE,
+      'identifier' => 'menu-locations_global-grenar:node/10157',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'sv',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-locations_global-ramas:node/10156.
+  $menu_links['menu-locations_global-ramas:node/10156'] = array(
+    'menu_name' => 'menu-locations',
+    'link_path' => 'node/10156',
+    'router_path' => 'node/%',
+    'link_title' => 'Global Ramas',
+    'options' => array(
+      'node_type' => 'page',
+      'alter' => TRUE,
+      'identifier' => 'menu-locations_global-ramas:node/10156',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'es',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-locations_global-ubeler:node/10158.
+  $menu_links['menu-locations_global-ubeler:node/10158'] = array(
+    'menu_name' => 'menu-locations',
+    'link_path' => 'node/10158',
+    'router_path' => 'node/%',
+    'link_title' => 'Global Şubeler',
+    'options' => array(
+      'node_type' => 'page',
+      'alter' => TRUE,
+      'identifier' => 'menu-locations_global-ubeler:node/10158',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'tr',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-locations_globale-rami:node/10154.
+  $menu_links['menu-locations_globale-rami:node/10154'] = array(
+    'menu_name' => 'menu-locations',
+    'link_path' => 'node/10154',
+    'router_path' => 'node/%',
+    'link_title' => 'Globale Rami',
+    'options' => array(
+      'node_type' => 'page',
+      'alter' => TRUE,
+      'identifier' => 'menu-locations_globale-rami:node/10154',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'it',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-locations_globale-zweige:node/10153.
+  $menu_links['menu-locations_globale-zweige:node/10153'] = array(
+    'menu_name' => 'menu-locations',
+    'link_path' => 'node/10153',
+    'router_path' => 'node/%',
+    'link_title' => 'Globale Zweige',
+    'options' => array(
+      'node_type' => 'page',
+      'alter' => TRUE,
+      'identifier' => 'menu-locations_globale-zweige:node/10153',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'de',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-locations_key-contacts:node/10150.
+  $menu_links['menu-locations_key-contacts:node/10150'] = array(
+    'menu_name' => 'menu-locations',
+    'link_path' => 'node/10150',
+    'router_path' => 'node/%',
+    'link_title' => 'Key Contacts',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-locations_key-contacts:node/10150',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'en',
     'menu_links_customized' => 1,
   );
   // Exported menu link: menu-locations_medioambiente:node/9874.
@@ -1561,75 +1640,6 @@ function menu_links_menu_default_menu_links() {
     'language' => 'sv',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: menu-locations_nyckelgrenar:location/key-branches.
-  $menu_links['menu-locations_nyckelgrenar:location/key-branches'] = array(
-    'menu_name' => 'menu-locations',
-    'link_path' => 'location/key-branches',
-    'router_path' => 'location/key-branches',
-    'link_title' => 'Nyckelgrenar',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-locations_nyckelgrenar:location/key-branches',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-    'language' => 'sv',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: menu-locations_ramas-clave:location/key-branches.
-  $menu_links['menu-locations_ramas-clave:location/key-branches'] = array(
-    'menu_name' => 'menu-locations',
-    'link_path' => 'location/key-branches',
-    'router_path' => 'location/key-branches',
-    'link_title' => 'Ramas clave',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-locations_ramas-clave:location/key-branches',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-    'language' => 'es',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: menu-locations_rami-chiave:location/key-branches.
-  $menu_links['menu-locations_rami-chiave:location/key-branches'] = array(
-    'menu_name' => 'menu-locations',
-    'link_path' => 'location/key-branches',
-    'router_path' => 'location/key-branches',
-    'link_title' => 'Rami chiave',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-locations_rami-chiave:location/key-branches',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-    'language' => 'it',
-    'menu_links_customized' => 1,
-  );
   // Exported menu link: menu-locations_rodowisko-naturalne:node/10117.
   $menu_links['menu-locations_rodowisko-naturalne:node/10117'] = array(
     'menu_name' => 'menu-locations',
@@ -1649,29 +1659,6 @@ function menu_links_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
     'language' => 'pl',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: menu-locations_schlssel-zweige:location/key-branches.
-  $menu_links['menu-locations_schlssel-zweige:location/key-branches'] = array(
-    'menu_name' => 'menu-locations',
-    'link_path' => 'location/key-branches',
-    'router_path' => 'location/key-branches',
-    'link_title' => 'Schlüssel Zweige',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Schlüssel Zweige',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-locations_schlssel-zweige:location/key-branches',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-    'language' => 'de',
     'menu_links_customized' => 1,
   );
   // Exported menu link: menu-locations_umwelt:node/6477.
@@ -1696,6 +1683,27 @@ function menu_links_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
     'language' => 'de',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-locations_wiatowy-gazie:node/10155.
+  $menu_links['menu-locations_wiatowy-gazie:node/10155'] = array(
+    'menu_name' => 'menu-locations',
+    'link_path' => 'node/10155',
+    'router_path' => 'node/%',
+    'link_title' => 'Światowy Gałęzie',
+    'options' => array(
+      'node_type' => 'page',
+      'alter' => TRUE,
+      'identifier' => 'menu-locations_wiatowy-gazie:node/10155',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'pl',
     'menu_links_customized' => 1,
   );
   // Exported menu link: menu-national-product-range-menu_ckd:node/6469.
@@ -2558,14 +2566,13 @@ function menu_links_menu_default_menu_links() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Ambiente');
-  t('Anahtar Şubeler');
   t('Anwendungen');
   t('Aplicaciones');
   t('Applications');
   t('Applicazioni');
   t('Article 1');
   t('Awards');
-  t('Branches clés');
+  t('Branches Mondiales');
   t('CKD');
   t('Careers');
   t('Carrières');
@@ -2573,6 +2580,7 @@ function menu_links_menu_default_menu_links() {
   t('Community');
   t('Comunidad');
   t('Comunità');
+  t('Customer Service');
   t('Emplacement');
   t('Environment');
   t('Environnement');
@@ -2584,6 +2592,12 @@ function menu_links_menu_default_menu_links() {
   t('Gamme de Produits');
   t('Gemeinschaft');
   t('Genel Ürün Kataloğu');
+  t('Global Branches');
+  t('Global Grenar');
+  t('Global Ramas');
+  t('Global Şubeler');
+  t('Globale Rami');
+  t('Globale Zweige');
   t('Home');
   t('Innovación');
   t('Innovation');
@@ -2592,8 +2606,7 @@ function menu_links_menu_default_menu_links() {
   t('Kariyer Fırsatları');
   t('Karriere');
   t('Karriärer');
-  t('Key Branches');
-  t('Kluczowe gałęzie');
+  t('Key Contacts');
   t('Konum');
   t('La nostra azienda');
   t('Location');
@@ -2606,7 +2619,6 @@ function menu_links_menu_default_menu_links() {
   t('News');
   t('Notre compagnie');
   t('Nuestra compañía');
-  t('Nyckelgrenar');
   t('O nas');
   t('Our Company');
   t('Performance');
@@ -2623,13 +2635,10 @@ function menu_links_menu_default_menu_links() {
   t('Produktprogramm');
   t('Produktsortiment');
   t('Przegląd produktów');
-  t('Ramas clave');
-  t('Rami chiave');
   t('Rendimiento');
   t('Rozwiązania');
   t('Récompenses');
   t('Samhälle');
-  t('Schlüssel Zweige');
   t('Schulung');
   t('Soluciones');
   t('Solutions');
@@ -2654,6 +2663,7 @@ function menu_links_menu_default_menu_links() {
   t('Çözümler');
   t('Ödüller');
   t('Środowisko naturalne');
+  t('Światowy Gałęzie');
   t('Şirketimiz');
 
   return $menu_links;
