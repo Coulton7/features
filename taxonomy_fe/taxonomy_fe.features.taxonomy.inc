@@ -134,5 +134,30 @@ function taxonomy_fe_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'training_courses' => array(
+      'name' => 'Training Courses',
+      'machine_name' => 'training_courses',
+      'description' => 'The Training Courses offered',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'language' => 'und',
+      'i18n_mode' => 4,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
   );
 }
