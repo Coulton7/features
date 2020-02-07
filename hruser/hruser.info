@@ -1,0 +1,9 @@
+name = hruser
+description = Adding the HR User
+core = 7.x
+package = Features
+version = 7.x-1.1
+features[features_api][] = api:2
+features[user_role][] = HR user
+features_exclude[dependencies][features] = features
+no autodetect = 1
