@@ -75,32 +75,10 @@ function entity_rule_setting_default_entity_rule_setting() {
     "false_msg" : null,
     "rdf_mapping" : []
   }');
-  $items['13'] = entity_import('entity_rule_setting', '{
-    "id" : "13",
+  $items['22'] = entity_import('entity_rule_setting', '{
+    "id" : "22",
     "entity_type" : "entityform",
     "bundle" : "branch_disti_form",
-    "op" : "entityform_submission",
-    "rules_config" : "rules_submit_to_zendesk",
-    "weight" : "0",
-    "args" : null,
-    "false_msg" : null,
-    "rdf_mapping" : []
-  }');
-  $items['17'] = entity_import('entity_rule_setting', '{
-    "id" : "17",
-    "entity_type" : "entityform",
-    "bundle" : "contact_form",
-    "op" : "entityform_submission",
-    "rules_config" : "rules_submit_to_hubspot_js",
-    "weight" : "0",
-    "args" : null,
-    "false_msg" : null,
-    "rdf_mapping" : []
-  }');
-  $items['18'] = entity_import('entity_rule_setting', '{
-    "id" : "18",
-    "entity_type" : "entityform",
-    "bundle" : "contact_form",
     "op" : "entityform_submission",
     "rules_config" : "rules_submit_to_hubspot_v3",
     "weight" : "0",

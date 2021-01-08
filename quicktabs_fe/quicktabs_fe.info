@@ -1,5 +1,5 @@
-name = All Quicktabs
-description = All of the Quicktabs on the site
+name = Quicktabs
+description = All quicktabs on the int sites
 core = 7.x
 package = Features
 version = 7.x-1.0

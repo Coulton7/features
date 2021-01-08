@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the All Quicktabs feature.
+ * Code for the Quicktabs feature.
  */
 
 include_once 'quicktabs_fe.features.inc';

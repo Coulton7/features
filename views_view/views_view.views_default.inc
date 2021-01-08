@@ -53,7 +53,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -75,7 +75,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['title'] = 'AESSEAL DE - Sauerlach';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -380,7 +380,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -743,7 +743,7 @@ function views_view_views_default_views() {
     1 => 'AND',
     2 => 'OR',
   );
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -765,6 +765,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'case_studies' => 'case_studies',
     'instagram' => 'instagram',
+    'linkedin' => 'linkedin',
     'success_stories' => 'success_stories',
     'tweet' => 'tweet',
   );
@@ -798,6 +799,81 @@ function views_view_views_default_views() {
   $export['case_studies_stream'] = $view;
 
   $view = new view();
+  $view->name = 'category_descriptions';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'Category Descriptions';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = '<none>';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  /* Field: Taxonomy term: brochure link */
+  $handler->display->display_options['fields']['field_brochure_link']['id'] = 'field_brochure_link';
+  $handler->display->display_options['fields']['field_brochure_link']['table'] = 'field_data_field_brochure_link';
+  $handler->display->display_options['fields']['field_brochure_link']['field'] = 'field_brochure_link';
+  $handler->display->display_options['fields']['field_brochure_link']['label'] = '';
+  $handler->display->display_options['fields']['field_brochure_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_brochure_link']['settings'] = array(
+    'class' => '',
+  );
+  /* Contextual filter: Taxonomy term: Term ID */
+  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['tid']['validate_options']['vocabularies'] = array(
+    'training_courses' => 'training_courses',
+  );
+  $handler->display->display_options['arguments']['tid']['validate_options']['transform'] = TRUE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'training_courses' => 'training_courses',
+  );
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['block_description'] = 'Training Course Description';
+  $export['category_descriptions'] = $view;
+
+  $view = new view();
   $view->name = 'contact_form';
   $view->description = '';
   $view->tag = 'default';
@@ -819,6 +895,12 @@ function views_view_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 blue-background';
   $handler->display->display_options['row_plugin'] = 'entity';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<img src="https://s3-eu-west-1.amazonaws.com/aesweb/hostinggrabs/Chem-Pharm-blue.png" class="img-responsive" alt="contact us">';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
@@ -882,6 +964,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
@@ -919,6 +1002,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['block_description'] = 'Training Booking Form - Contact';
   $export['contact_form'] = $view;
 
@@ -1073,7 +1157,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_instagram_picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_instagram_picture']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_instagram_picture']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'large',
     'image_link' => '',
     'class' => '',
   );
@@ -1100,7 +1184,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_linkedin_picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_linkedin_picture']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_linkedin_picture']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'large',
     'image_link' => '',
     'class' => '',
   );
@@ -1127,7 +1211,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_tweet_media']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tweet_media']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_tweet_media']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'large',
     'image_link' => '',
     'class' => 'img-adaptive',
   );
@@ -1179,7 +1263,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'class' => '',
   );
-  /* Field: Content: Link */
+  /* Field: Content: Link to content */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -1192,7 +1276,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1255,7 +1339,7 @@ function views_view_views_default_views() {
     2 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1383,6 +1467,8 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_social_links']['field'] = 'field_social_links';
   $handler->display->display_options['fields']['field_social_links']['label'] = '';
   $handler->display->display_options['fields']['field_social_links']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_social_links']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_social_links']['alter']['text'] = '<a href="[field_social_links-url]" alt="[field_social_links-url]" title="Add me to your Linkedin Network"></a>';
   $handler->display->display_options['fields']['field_social_links']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_social_links']['settings'] = array(
     'class' => '',
@@ -1417,7 +1503,7 @@ function views_view_views_default_views() {
     'trim_length' => '600',
     'class' => '',
   );
-  /* Field: Field: User Location */
+  /* Field: Field: Course Location */
   $handler->display->display_options['fields']['field_user_location']['id'] = 'field_user_location';
   $handler->display->display_options['fields']['field_user_location']['table'] = 'field_data_field_user_location';
   $handler->display->display_options['fields']['field_user_location']['field'] = 'field_user_location';
@@ -1433,7 +1519,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
-  /* Filter criterion: User: Active */
+  /* Filter criterion: User: Active status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1461,7 +1547,7 @@ function views_view_views_default_views() {
   $handler = $view->new_display('block', 'AESSEAL DE - Sauerlach', 'block_1');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: User: Active */
+  /* Filter criterion: User: Active status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1485,7 +1571,7 @@ function views_view_views_default_views() {
   $handler = $view->new_display('block', 'Additional Territories', 'block_2');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: User: Active */
+  /* Filter criterion: User: Active status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1753,16 +1839,6 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['country']['label'] = '';
   $handler->display->display_options['fields']['country']['element_class'] = 'margin-top margin-bottom';
   $handler->display->display_options['fields']['country']['element_label_colon'] = FALSE;
-  /* Field: Location: Phone */
-  $handler->display->display_options['fields']['phone']['id'] = 'phone';
-  $handler->display->display_options['fields']['phone']['table'] = 'location_phone';
-  $handler->display->display_options['fields']['phone']['field'] = 'phone';
-  $handler->display->display_options['fields']['phone']['relationship'] = 'field_user_location_target_id';
-  $handler->display->display_options['fields']['phone']['label'] = '';
-  $handler->display->display_options['fields']['phone']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['phone']['alter']['text'] = '<hr class="white-dotted-line"></hr>
-<i class="fas fa-phone-square-alt fa-2x"></i> [phone]';
-  $handler->display->display_options['fields']['phone']['element_label_colon'] = FALSE;
   /* Field: Content: Location */
   $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
   $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
@@ -1782,6 +1858,10 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_images']['field'] = 'field_images';
   $handler->display->display_options['fields']['field_images']['relationship'] = 'field_user_location_target_id';
   $handler->display->display_options['fields']['field_images']['label'] = '';
+  $handler->display->display_options['fields']['field_images']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_images']['alter']['text'] = '<h3>Branch Facilities</h3>
+<hr class="white-dotted-line"></hr>
+[field_images]';
   $handler->display->display_options['fields']['field_images']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_images']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_images']['type'] = 'flexslider';
@@ -1791,6 +1871,17 @@ function views_view_views_default_views() {
     'caption' => '0',
     'class' => '',
   );
+  /* Field: Location: Phone */
+  $handler->display->display_options['fields']['phone']['id'] = 'phone';
+  $handler->display->display_options['fields']['phone']['table'] = 'location_phone';
+  $handler->display->display_options['fields']['phone']['field'] = 'phone';
+  $handler->display->display_options['fields']['phone']['relationship'] = 'field_user_location_target_id';
+  $handler->display->display_options['fields']['phone']['label'] = '';
+  $handler->display->display_options['fields']['phone']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['phone']['alter']['text'] = '<h3>Contact Info</h3>
+<hr class="white-dotted-line"></hr>
+<i class="fas fa-envelope-square fa-2x"></i> <a href ="/connect">Contact this branch</a>   <i class="fas fa-phone-square-alt fa-2x"></i> [phone] ';
+  $handler->display->display_options['fields']['phone']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Nid */
@@ -1946,6 +2037,14 @@ function views_view_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'col-sm-4';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<div class="margin-2em">
+<p class="text-center">Find more information on our wider network of sales, service and support centres by visiting the AESSEAL<sup>&reg;</sup> global website.</p>
+</div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Content: External Path */
   $handler->display->display_options['fields']['field_external_path']['id'] = 'field_external_path';
   $handler->display->display_options['fields']['field_external_path']['table'] = 'field_data_field_external_path';
@@ -1976,7 +2075,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2015,7 +2114,7 @@ function views_view_views_default_views() {
   $handler = $view->new_display('block', 'Asia', 'block_1');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2051,7 +2150,7 @@ function views_view_views_default_views() {
   $handler = $view->new_display('block', 'Australasia', 'block_2');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2087,7 +2186,7 @@ function views_view_views_default_views() {
   $handler = $view->new_display('block', 'Europe', 'block_3');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2123,7 +2222,7 @@ function views_view_views_default_views() {
   $handler = $view->new_display('block', 'Middle-East', 'block_4');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2159,7 +2258,7 @@ function views_view_views_default_views() {
   $handler = $view->new_display('block', 'North America', 'block_5');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2195,7 +2294,7 @@ function views_view_views_default_views() {
   $handler = $view->new_display('block', 'South America', 'block_6');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2319,7 +2418,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['arguments']['distance']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['distance']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['distance']['type'] = 'latlon';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2405,7 +2504,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['header']['area']['format'] = 'ck_editor';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2574,7 +2673,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = '<style>
-.desktop-stream .block-title{display:none;}
+.mobile-stream .block-title{display:none;}
 .grey-gradient{background:none; border:none;}
 </style>
 ';
@@ -2849,7 +2948,7 @@ function views_view_views_default_views() {
     1 => 'AND',
     2 => 'OR',
   );
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2941,7 +3040,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = '<style>
-.desktop-stream .block-title{display:none;}
+.mobile-stream .block-title{display:none;}
 .grey-gradient{background:none; border:none;}
 </style>
 ';
@@ -2961,7 +3060,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2976,11 +3075,6 @@ function views_view_views_default_views() {
     'instagram' => 'instagram',
     'tweet' => 'tweet',
   );
-  /* Filter criterion: Content: Has taxonomy term */
-  $handler->display->display_options['filters']['tid']['id'] = 'tid';
-  $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['filters']['tid']['field'] = 'tid';
-  $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
 
   /* Display: Our Company - Community Feed */
   $handler = $view->new_display('block', 'Our Company - Community Feed', 'block');
@@ -3186,7 +3280,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -3442,7 +3536,7 @@ function views_view_views_default_views() {
     2 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -3688,7 +3782,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -3920,7 +4014,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -4160,7 +4254,7 @@ function views_view_views_default_views() {
     2 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -4405,7 +4499,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -4639,7 +4733,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -4931,7 +5025,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -4980,7 +5074,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5052,7 +5146,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5124,7 +5218,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5198,7 +5292,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5277,7 +5371,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5350,7 +5444,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5428,7 +5522,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5502,7 +5596,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5577,7 +5671,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5652,7 +5746,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5726,7 +5820,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -6567,7 +6661,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -6674,7 +6768,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -6701,7 +6795,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -6753,6 +6847,16 @@ function views_view_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<div class="social-id">
+<p class="fade_text">Find Us</p>
+<p class="fade_text">Follow Us</p>
+<p class="fade_text">Contact Us</p>
+</div>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Field: User: Social Links */
   $handler->display->display_options['fields']['field_social_links']['id'] = 'field_social_links';
   $handler->display->display_options['fields']['field_social_links']['table'] = 'field_data_field_social_links';
@@ -6773,7 +6877,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'users';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: User: Active */
+  /* Filter criterion: User: Active status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -6849,6 +6953,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['style_options']['masonry_images_first'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
+    'field_trainer' => 'field_trainer',
     'field_user_location' => 'field_user_location',
   );
   $handler->display->display_options['row_options']['separator'] = '</hr>';
@@ -6878,7 +6983,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -7101,7 +7206,7 @@ function views_view_views_default_views() {
     'trim_length' => '400',
     'class' => '',
   );
-  /* Field: Content: Link */
+  /* Field: Content: Link to content */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -7112,7 +7217,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -7388,7 +7493,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_external_link']['settings'] = array(
     'class' => '',
   );
-  /* Field: Content: Link */
+  /* Field: Content: Link to content */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -7404,7 +7509,7 @@ function views_view_views_default_views() {
     2 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -7649,7 +7754,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -7883,7 +7988,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -8098,7 +8203,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'jS, F, Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Field: Course Date */
+  /* Field: Content: Course Date */
   $handler->display->display_options['fields']['field_course_date']['id'] = 'field_course_date';
   $handler->display->display_options['fields']['field_course_date']['table'] = 'field_data_field_course_date';
   $handler->display->display_options['fields']['field_course_date']['field'] = 'field_course_date';
@@ -8113,7 +8218,25 @@ function views_view_views_default_views() {
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
-    'show_remaining_days' => 1,
+    'show_remaining_days' => 0,
+    'class' => '',
+  );
+  /* Field: Content: Course Date */
+  $handler->display->display_options['fields']['field_course_date_1']['id'] = 'field_course_date_1';
+  $handler->display->display_options['fields']['field_course_date_1']['table'] = 'field_data_field_course_date';
+  $handler->display->display_options['fields']['field_course_date_1']['field'] = 'field_course_date';
+  $handler->display->display_options['fields']['field_course_date_1']['label'] = 'Email date';
+  $handler->display->display_options['fields']['field_course_date_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_course_date_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_course_date_1']['type'] = 'date_plain';
+  $handler->display->display_options['fields']['field_course_date_1']['settings'] = array(
+    'format_type' => 'short',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
     'class' => '',
   );
   /* Field: Content: social icon */
@@ -8129,17 +8252,44 @@ function views_view_views_default_views() {
     'class' => 'social-indicator',
   );
   /* Field: Content: Training Course */
+  $handler->display->display_options['fields']['field_training_course_1']['id'] = 'field_training_course_1';
+  $handler->display->display_options['fields']['field_training_course_1']['table'] = 'field_data_field_training_course';
+  $handler->display->display_options['fields']['field_training_course_1']['field'] = 'field_training_course';
+  $handler->display->display_options['fields']['field_training_course_1']['label'] = '';
+  $handler->display->display_options['fields']['field_training_course_1']['alter']['text'] = '[field_training_course_1-tid]';
+  $handler->display->display_options['fields']['field_training_course_1']['alter']['path'] = '[field_training_course_1]';
+  $handler->display->display_options['fields']['field_training_course_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_training_course_1']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_training_course_1']['element_wrapper_class'] = 'social-body';
+  $handler->display->display_options['fields']['field_training_course_1']['type'] = 'taxonomy_term_reference_link';
+  $handler->display->display_options['fields']['field_training_course_1']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Training Course */
   $handler->display->display_options['fields']['field_training_course']['id'] = 'field_training_course';
   $handler->display->display_options['fields']['field_training_course']['table'] = 'field_data_field_training_course';
   $handler->display->display_options['fields']['field_training_course']['field'] = 'field_training_course';
-  $handler->display->display_options['fields']['field_training_course']['label'] = '';
+  $handler->display->display_options['fields']['field_training_course']['label'] = 'Email label';
+  $handler->display->display_options['fields']['field_training_course']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_training_course']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_training_course']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_training_course']['element_wrapper_class'] = '[type] social-body';
+  $handler->display->display_options['fields']['field_training_course']['type'] = 'i18n_taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_training_course']['settings'] = array(
     'class' => '',
   );
-  /* Field: Field: User Location */
+  /* Field: Content: Trainer */
+  $handler->display->display_options['fields']['field_trainer']['id'] = 'field_trainer';
+  $handler->display->display_options['fields']['field_trainer']['table'] = 'field_data_field_trainer';
+  $handler->display->display_options['fields']['field_trainer']['field'] = 'field_trainer';
+  $handler->display->display_options['fields']['field_trainer']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_trainer']['element_wrapper_class'] = '[type] social-body';
+  $handler->display->display_options['fields']['field_trainer']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+    'class' => '',
+  );
+  /* Field: Field: Course Location */
   $handler->display->display_options['fields']['field_user_location']['id'] = 'field_user_location';
   $handler->display->display_options['fields']['field_user_location']['table'] = 'field_data_field_user_location';
   $handler->display->display_options['fields']['field_user_location']['field'] = 'field_user_location';
@@ -8147,6 +8297,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['field_user_location']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_user_location']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_user_location']['element_wrapper_class'] = '[type] social-body';
+  $handler->display->display_options['fields']['field_user_location']['empty'] = '<p>Off Site Training</p>';
   $handler->display->display_options['fields']['field_user_location']['settings'] = array(
     'bypass_access' => 0,
     'link' => 0,
@@ -8166,15 +8317,15 @@ function views_view_views_default_views() {
     'trim_length' => '400',
     'class' => '',
   );
-  /* Field: Content: Link */
-  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['label'] = '';
-  $handler->display->display_options['fields']['view_node']['element_type'] = 'div';
-  $handler->display->display_options['fields']['view_node']['element_class'] = '[type] social-body';
-  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'Book Now';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href= \'mailto:training@aesseal.co.uk?subject=[field_training_course]%20%7C%20[field_course_date_1]&body=[field_trainer]%0D%0A[field_training_course]%0D%0A[field_user_location]%0D%0A[field_course_date_1]%0D%0A%0D%0AI%20would%20like%20to%20book%20the%20above%20training%20course%20for%20the%20following%20delegates%20-%0D%0A%0D%0AYou%20can%20contact%20me%20on%20the%20following%20methods%20-\'>Book this Course</a>';
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
+  $handler->display->display_options['fields']['nothing']['element_class'] = '[type] social-body';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['operator'] = 'OR';
   $handler->display->display_options['filter_groups']['groups'] = array(
@@ -8182,7 +8333,7 @@ function views_view_views_default_views() {
     2 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -8219,7 +8370,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['filters']['tid']['group'] = 2;
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
-  /* Filter criterion: Field: Course Date -  start date (field_course_date) */
+  /* Filter criterion: Content: Course Date -  start date (field_course_date) */
   $handler->display->display_options['filters']['field_course_date_value']['id'] = 'field_course_date_value';
   $handler->display->display_options['filters']['field_course_date_value']['table'] = 'field_data_field_course_date';
   $handler->display->display_options['filters']['field_course_date_value']['field'] = 'field_course_date_value';
@@ -8434,7 +8585,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -8668,7 +8819,7 @@ function views_view_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -8696,6 +8847,175 @@ function views_view_views_default_views() {
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
   $handler->display->display_options['block_description'] = 'Environment Social Stream';
   $export['social_stream'] = $view;
+
+  $view = new view();
+  $view->name = 'training_courses';
+  $view->description = 'A view to emulate Drupal core\'s handling of taxonomy/term.';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Training Courses';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['css_class'] = 'col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'field_course_date' => 'field_course_date',
+    'field_trainer' => 'field_trainer',
+    'nothing' => 'nothing',
+  );
+  $handler->display->display_options['style_options']['class'] = '';
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'field_course_date' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_trainer' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Header: Global: View area */
+  $handler->display->display_options['header']['view']['id'] = 'view';
+  $handler->display->display_options['header']['view']['table'] = 'views';
+  $handler->display->display_options['header']['view']['field'] = 'view';
+  $handler->display->display_options['header']['view']['empty'] = TRUE;
+  $handler->display->display_options['header']['view']['view_to_insert'] = 'category_descriptions:block';
+  $handler->display->display_options['header']['view']['inherit_arguments'] = TRUE;
+  /* Field: Content: Training Course */
+  $handler->display->display_options['fields']['field_training_course']['id'] = 'field_training_course';
+  $handler->display->display_options['fields']['field_training_course']['table'] = 'field_data_field_training_course';
+  $handler->display->display_options['fields']['field_training_course']['field'] = 'field_training_course';
+  $handler->display->display_options['fields']['field_training_course']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_training_course']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: Trainer */
+  $handler->display->display_options['fields']['field_trainer']['id'] = 'field_trainer';
+  $handler->display->display_options['fields']['field_trainer']['table'] = 'field_data_field_trainer';
+  $handler->display->display_options['fields']['field_trainer']['field'] = 'field_trainer';
+  $handler->display->display_options['fields']['field_trainer']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+    'class' => '',
+  );
+  /* Field: Content: Course Date */
+  $handler->display->display_options['fields']['field_course_date_1']['id'] = 'field_course_date_1';
+  $handler->display->display_options['fields']['field_course_date_1']['table'] = 'field_data_field_course_date';
+  $handler->display->display_options['fields']['field_course_date_1']['field'] = 'field_course_date';
+  $handler->display->display_options['fields']['field_course_date_1']['label'] = '';
+  $handler->display->display_options['fields']['field_course_date_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_course_date_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_course_date_1']['type'] = 'date_plain';
+  $handler->display->display_options['fields']['field_course_date_1']['settings'] = array(
+    'format_type' => 'short',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+    'class' => '',
+  );
+  /* Field: Content: Course Date */
+  $handler->display->display_options['fields']['field_course_date']['id'] = 'field_course_date';
+  $handler->display->display_options['fields']['field_course_date']['table'] = 'field_data_field_course_date';
+  $handler->display->display_options['fields']['field_course_date']['field'] = 'field_course_date';
+  $handler->display->display_options['fields']['field_course_date']['settings'] = array(
+    'format_type' => 'short',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+    'class' => '',
+  );
+  /* Field: Field: Course Location */
+  $handler->display->display_options['fields']['field_user_location']['id'] = 'field_user_location';
+  $handler->display->display_options['fields']['field_user_location']['table'] = 'field_data_field_user_location';
+  $handler->display->display_options['fields']['field_user_location']['field'] = 'field_user_location';
+  $handler->display->display_options['fields']['field_user_location']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+    'class' => '',
+  );
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="mailto:training@aesseal.co.uk?subject=[field_training_course]%20%7C%20[field_course_date_1]&body=[field_trainer]%0D%0A[field_training_course]%0D%0A[field_user_location]%0D%0A[field_course_date_1]%0D%0A%0D%0AI%20would%20like%20to%20book%20the%20above%20training%20course%20for%20the%20following%20delegates%20-%0D%0A%0D%0AYou%20can%20contact%20me%20on%20the%20following%20methods%20-">Book this Course</a>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Has taxonomy term ID */
+  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
+  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['default_action'] = 'empty';
+  $handler->display->display_options['arguments']['tid']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['title'] = '%1';
+  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['tid']['validate_options']['vocabularies'] = array(
+    'training_courses' => 'training_courses',
+  );
+  $handler->display->display_options['arguments']['tid']['validate_options']['transform'] = TRUE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'training_events' => 'training_events',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'taxonomy/term/%';
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed');
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = 15;
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['path'] = 'taxonomy/term/%/%/feed';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'default' => 0,
+  );
+  $export['training_courses'] = $view;
 
   $view = new view();
   $view->name = 'unpublished_social_feed';
@@ -8728,14 +9048,14 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
-  /* Field: Content: Published */
+  /* Field: Content: Published status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['label'] = 'Status';
   $handler->display->display_options['fields']['status']['type'] = 'published-notpublished';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Field: Content: Edit link */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -8746,7 +9066,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -8858,7 +9178,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -9043,7 +9363,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -9218,7 +9538,7 @@ function views_view_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Content: Author */
+  /* Relationship: Content: Content author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
@@ -9440,7 +9760,7 @@ function views_view_views_default_views() {
   $handler->display->display_options['fields']['name_1']['field'] = 'name';
   $handler->display->display_options['fields']['name_1']['relationship'] = 'uid_1';
   $handler->display->display_options['fields']['name_1']['label'] = 'By';
-  /* Field: Content: Edit link */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';

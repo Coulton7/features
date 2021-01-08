@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Captcha points feature.
+ */
+
+include_once 'captcha_points.features.inc';

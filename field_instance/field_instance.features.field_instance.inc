@@ -353,9 +353,10 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'comment-comment_node_training-comment_body'.
-  $field_instances['comment-comment_node_training-comment_body'] = array(
-    'bundle' => 'comment_node_training',
+  // Exported field_instance:
+  // 'comment-comment_node_training_events-comment_body'.
+  $field_instances['comment-comment_node_training_events-comment_body'] = array(
+    'bundle' => 'comment_node_training_events',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -455,7 +456,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 56,
+      'weight' => 57,
     ),
   );
 
@@ -578,6 +579,46 @@ function field_instance_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'entityform-branch_disti_form-field_for_process_data'.
+  $field_instances['entityform-branch_disti_form-field_for_process_data'] = array(
+    'bundle' => 'branch_disti_form',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => 'In order to provide you the content requested, we need to store and process your personal data. If you consent to us storing your personal data for this purpose, please tick the checkbox below.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 45,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_for_process_data',
+    'label' => 'I agree to allow AESSEAL to store and process my personal data',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 55,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-branch_disti_form-field_hidden_branch_email'.
   $field_instances['entityform-branch_disti_form-field_hidden_branch_email'] = array(
     'bundle' => 'branch_disti_form',
@@ -619,7 +660,12 @@ function field_instance_field_default_field_instances() {
   // 'entityform-branch_disti_form-field_hidden_form_url'.
   $field_instances['entityform-branch_disti_form-field_hidden_form_url'] = array(
     'bundle' => 'branch_disti_form',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '[current-page:url]',
+      ),
+    ),
+    'default_value_function' => 'field_default_token_default_value_function',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -654,10 +700,9 @@ function field_instance_field_default_field_instances() {
     'bundle' => 'branch_disti_form',
     'default_value' => array(
       0 => array(
-        'value' => '[entityform:field_hubspot_form_id]',
+        'value' => 'a014d83c-8942-4076-8c95-bc6c47ff38c4',
       ),
     ),
-    'default_value_function' => 'field_default_token_default_value_function',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -682,7 +727,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 55,
+      'weight' => 56,
     ),
   );
 
@@ -852,10 +897,9 @@ function field_instance_field_default_field_instances() {
     'bundle' => 'branch_disti_form',
     'default_value' => array(
       0 => array(
-        'value' => '[system-user:location:country]',
+        'value' => 'Germany',
       ),
     ),
-    'default_value_function' => 'field_default_token_default_value_function',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -882,7 +926,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 57,
+      'weight' => 58,
     ),
   );
 
@@ -960,7 +1004,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 37,
+      'weight' => 39,
     ),
   );
 
@@ -1178,7 +1222,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 36,
+      'weight' => 38,
     ),
   );
 
@@ -1672,7 +1716,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 3,
     ),
   );
 
@@ -1710,7 +1754,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -1745,7 +1789,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 2,
     ),
   );
 
@@ -1785,6 +1829,46 @@ function field_instance_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'entityform-product_enquiry-field_for_process_data'.
+  $field_instances['entityform-product_enquiry-field_for_process_data'] = array(
+    'bundle' => 'product_enquiry',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => 'In order to provide you the content requested, we need to store and process your personal data. If you consent to us storing your personal data for this purpose, please tick the checkbox below.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_for_process_data',
+    'label' => 'I agree to allow AESSEAL to store and process my personal data',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-product_enquiry-field_hidden_form_url'.
   $field_instances['entityform-product_enquiry-field_hidden_form_url'] = array(
     'bundle' => 'product_enquiry',
@@ -1818,7 +1902,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -1855,7 +1939,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -1925,7 +2009,306 @@ function field_instance_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 6,
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-training_event_booking-field_course'.
+  $field_instances['entityform-training_event_booking-field_course'] = array(
+    'bundle' => 'training_event_booking',
+    'default_value' => array(
+      0 => array(
+        'value' => '[current-page:title]',
+      ),
+    ),
+    'default_value_function' => 'field_default_token_default_value_function',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_course',
+    'label' => 'Training Course',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-training_event_booking-field_course_dates'.
+  $field_instances['entityform-training_event_booking-field_course_dates'] = array(
+    'bundle' => 'training_event_booking',
+    'default_value' => array(
+      0 => array(
+        'value' => '[site:feed-node:feed-source:field-course-date:value]	',
+      ),
+    ),
+    'default_value_function' => 'field_default_token_default_value_function',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_course_dates',
+    'label' => 'Course dates',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-training_event_booking-field_email'.
+  $field_instances['entityform-training_event_booking-field_email'] = array(
+    'bundle' => 'training_event_booking',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_email',
+    'label' => 'Email',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-training_event_booking-field_first_name'.
+  $field_instances['entityform-training_event_booking-field_first_name'] = array(
+    'bundle' => 'training_event_booking',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_first_name',
+    'label' => 'First Name',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-training_event_booking-field_for_process_data'.
+  $field_instances['entityform-training_event_booking-field_for_process_data'] = array(
+    'bundle' => 'training_event_booking',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => 'In order to provide you the content requested, we need to store and process your personal data. If you consent to us storing your personal data for this purpose, please tick the checkbox below.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 16,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_for_process_data',
+    'label' => 'I agree to allow AESSEAL to store and process my personal data',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 17,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-training_event_booking-field_last_name'.
+  $field_instances['entityform-training_event_booking-field_last_name'] = array(
+    'bundle' => 'training_event_booking',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_last_name',
+    'label' => 'Last Name',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-training_event_booking-field_organisation'.
+  $field_instances['entityform-training_event_booking-field_organisation'] = array(
+    'bundle' => 'training_event_booking',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_organisation',
+    'label' => 'Organisation',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-training_event_booking-field_phone'.
+  $field_instances['entityform-training_event_booking-field_phone'] = array(
+    'bundle' => 'training_event_booking',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_phone',
+    'label' => 'Telephone',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 14,
     ),
   );
 
@@ -2143,7 +2526,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'inline',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 11,
       ),
@@ -2472,7 +2857,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'inline',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 16,
       ),
@@ -2767,7 +3154,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 3,
       ),
@@ -3014,7 +3403,7 @@ function field_instance_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3039,7 +3428,68 @@ function field_instance_field_default_field_instances() {
         'name_as_title' => 1,
       ),
       'type' => 'workflow_default',
-      'weight' => 17,
+      'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance: 'node-job_vacancies-field_careers_image'.
+  $field_instances['node-job_vacancies-field_careers_image'] = array(
+    'bundle' => 'job_vacancies',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_careers_image',
+    'label' => 'Careers Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => 'fields/careers_image',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '1080x1080',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+      'wysiwyg_insert' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'private' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 16,
     ),
   );
 
@@ -3135,7 +3585,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 23,
       ),
@@ -3361,7 +3813,45 @@ function field_instance_field_default_field_instances() {
   // Exported field_instance: 'node-job_vacancies-field_person_spec'.
   $field_instances['node-job_vacancies-field_person_spec'] = array(
     'bundle' => 'job_vacancies',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '<table border="1" cellpadding="1" cellspacing="1" class="table-responsive table-bordered table-striped">
+	<thead>
+		<tr>
+			<th class="col-xs-2" scope="col"><strong>Crieteria</strong></th>
+			<th class="col-xs-5" scope="col"><strong>Essential</strong></th>
+			<th class="col-xs-5" scope="col"><strong>Desirable</strong></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="col-xs-2"><strong>Qualifications</strong></td>
+			<td class="col-xs-5">&nbsp;</td>
+			<td class="col-xs-5">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="col-xs-2"><strong>Skills &amp; Knowledge</strong></td>
+			<td class="col-xs-5">&nbsp;</td>
+			<td class="col-xs-5">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="col-xs-2"><strong>Experience</strong></td>
+			<td class="col-xs-5">&nbsp;</td>
+			<td class="col-xs-5">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="col-xs-2"><strong>Character</strong></td>
+			<td class="col-xs-5">&nbsp;</td>
+			<td class="col-xs-5">&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+',
+        'format' => 'ck_editor',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3405,7 +3895,7 @@ function field_instance_field_default_field_instances() {
     'default_value' => NULL,
     'default_value_label_token' => 0,
     'deleted' => 0,
-    'description' => 'Choose the level of the position',
+    'description' => 'Choose the seniority level of the job vacancy',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -3448,7 +3938,7 @@ function field_instance_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3481,7 +3971,7 @@ function field_instance_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -3581,7 +4071,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 3,
       ),
@@ -3690,7 +4182,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 3,
       ),
@@ -4054,7 +4548,7 @@ function field_instance_field_default_field_instances() {
       'alt_field' => 0,
       'default_image' => 0,
       'entity_translation_sync' => FALSE,
-      'file_directory' => 'fields/field_images',
+      'file_directory' => 'fields/field_location_images',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -5317,7 +5811,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'inline',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 9,
       ),
@@ -5658,7 +6154,7 @@ function field_instance_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -5704,6 +6200,49 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-success_stories-field_document'.
+  $field_instances['node-success_stories-field_document'] = array(
+    'bundle' => 'success_stories',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_document',
+    'label' => 'Click to Download',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => 'fields/field_document',
+      'file_extensions' => 'txt pdf',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 11,
+    ),
+  );
+
   // Exported field_instance: 'node-success_stories-field_industry'.
   $field_instances['node-success_stories-field_industry'] = array(
     'bundle' => 'success_stories',
@@ -5739,7 +6278,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -5896,7 +6435,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 11,
+      'weight' => 10,
     ),
   );
 
@@ -5935,13 +6474,13 @@ function field_instance_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
-  // Exported field_instance: 'node-training-body'.
-  $field_instances['node-training-body'] = array(
-    'bundle' => 'training',
+  // Exported field_instance: 'node-training_events-body'.
+  $field_instances['node-training_events-body'] = array(
+    'bundle' => 'training_events',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -5951,7 +6490,7 @@ function field_instance_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -5980,23 +6519,29 @@ function field_instance_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 6,
+      'weight' => 10,
     ),
   );
 
-  // Exported field_instance: 'node-training-field_course_location'.
-  $field_instances['node-training-field_course_location'] = array(
-    'bundle' => 'training',
-    'default_value' => NULL,
+  // Exported field_instance: 'node-training_events-field_course_date'.
+  $field_instances['node-training_events-field_course_date'] = array(
+    'bundle' => 'training_events',
     'deleted' => 0,
-    'description' => 'Input the Course Locations',
+    'description' => 'Enter the Course Start Date and End Date',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -6006,22 +6551,206 @@ function field_instance_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_course_location',
-    'label' => 'Course Location',
+    'field_name' => 'field_course_date',
+    'label' => 'Course Date',
     'required' => 0,
     'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
       'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'date',
       'settings' => array(
+        'increment' => 1,
+        'input_format' => 'custom',
+        'input_format_custom' => 'd/m/Y',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_text',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-training_events-field_social_icon'.
+  $field_instances['node-training_events-field_social_icon'] = array(
+    'bundle' => 'training_events',
+    'deleted' => 0,
+    'description' => 'DO NOT ADD AN IMAGE AN ICON IS ALREADY PROVIDED',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_social_icon',
+    'label' => 'social icon',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-training_events-field_trainer'.
+  $field_instances['node-training_events-field_trainer'] = array(
+    'bundle' => 'training_events',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'entityreference',
+        'settings' => array(
+          'bypass_access' => FALSE,
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_trainer',
+    'label' => 'Trainer',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
         'size' => 60,
       ),
-      'type' => 'text_textfield',
-      'weight' => 5,
+      'type' => 'entityreference_autocomplete_tags',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-training_events-field_training_course'.
+  $field_instances['node-training_events-field_training_course'] = array(
+    'bundle' => 'training_events',
+    'default_value' => NULL,
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => 'Select the training course',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_training_course',
+    'label' => 'Training Course',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-training_events-field_user_location'.
+  $field_instances['node-training_events-field_user_location'] = array(
+    'bundle' => 'training_events',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter "AESSEAL DE" to see AESSEAL Locations in your Country.',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'entityreference',
+        'settings' => array(
+          'bypass_access' => FALSE,
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_user_location',
+    'label' => 'Course Location',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 11,
     ),
   );
 
@@ -6253,7 +6982,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 4,
       ),
@@ -6455,7 +7186,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 2,
       ),
@@ -6611,7 +7344,9 @@ function field_instance_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'custom_title' => '',
+        ),
         'type' => 'link_default',
         'weight' => 1,
       ),
@@ -6706,12 +7441,81 @@ function field_instance_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'taxonomy_term-training_courses-field_brochure_link'.
+  $field_instances['taxonomy_term-training_courses-field_brochure_link'] = array(
+    'bundle' => 'training_courses',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'add brochure link use this and change the page number.  <a class="btn btn-primary white-text margin-top no-dash" href="/sites/avtreliability.com/files/download/LIT-UK-A-TRAINING-21.pdf#page=6" role="button" title="Download the Brochure"><i class="fa fa-file-pdf"></I> See the full course details</a>',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_brochure_link',
+    'label' => 'brochure link',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 255,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_country'.
+  $field_instances['user-user-field_country'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'default_value_label_token' => 0,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_country',
+    'label' => 'Country',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_description'.
   $field_instances['user-user-field_description'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Think of this as a mini CV for each key member of staff (but consider the end user when writing this) e.g who do i contact when I have issue.  Staff members could include one from sales, one from technical support, one from customer service etc. ',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -6728,7 +7532,7 @@ function field_instance_field_default_field_instances() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
-      'user_register_form' => 0,
+      'user_register_form' => 1,
     ),
     'widget' => array(
       'active' => 1,
@@ -6737,7 +7541,7 @@ function field_instance_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -6807,7 +7611,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -6839,7 +7643,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'social_profile_field',
       'settings' => array(),
       'type' => 'social_profile_field_default',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -6879,7 +7683,7 @@ function field_instance_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -6953,7 +7757,7 @@ function field_instance_field_default_field_instances() {
       'module' => 'tmgmt_language_combination',
       'settings' => array(),
       'type' => 'tmgmt_language_combination_default',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -6968,23 +7772,29 @@ function field_instance_field_default_field_instances() {
   t('Banner Image');
   t('Body');
   t('Brochure');
+  t('Careers Image');
   t('Case Ref');
   t('Case Study Products');
   t('Check the box if this resource delivered by a Hubspot email. If the resource is downloaded from the site leave the box unchecked.');
-  t('Choose the level of the position');
+  t('Choose the seniority level of the job vacancy');
   t('Click to Download');
   t('Comment');
   t('Company');
   t('Continent');
   t('Country');
+  t('Course Date');
   t('Course Location');
+  t('Course dates');
   t('Current Page Title');
+  t('DO NOT ADD AN IMAGE AN ICON IS ALREADY PROVIDED');
   t('Description');
   t('Do NOT add a image to this section as it will override the banner image on the page');
   t('Do NOT add an image for the social icon as one is already provided');
   t('Email');
   t('Email Address');
   t('Employment Type');
+  t('Enter "AESSEAL DE" to see AESSEAL Locations in your Country.');
+  t('Enter the Course Start Date and End Date');
   t('External Path');
   t('External id');
   t('First Name');
@@ -6993,13 +7803,14 @@ function field_instance_field_default_field_instances() {
   t('For the Job Vacancy reference number');
   t('Form Display');
   t('Hidden Form URL');
+  t('I agree to allow AESSEAL to store and process my personal data');
   t('I agree to allow AESSEAL to store and process my personal data.');
   t('I agree to receive other communications from AESSEAL.');
   t('Icon');
   t('Image');
+  t('In order to provide you the content requested, we need to store and process your personal data. If you consent to us storing your personal data for this purpose, please tick the checkbox below.');
   t('Industry');
   t('Industry image');
-  t('Input the Course Locations');
   t('Instagram Picture');
   t('Instagram link');
   t('Job Duties');
@@ -7027,11 +7838,13 @@ function field_instance_field_default_field_instances() {
   t('Product Image');
   t('Question');
   t('Related Products ');
+  t('Select the training course');
   t('Seniority Level');
   t('Social Links');
   t('Success Story Image');
   t('Tags');
   t('Telephone');
+  t('Think of this as a mini CV for each key member of staff (but consider the end user when writing this) e.g who do i contact when I have issue.  Staff members could include one from sales, one from technical support, one from customer service etc. ');
   t('This is for bullet pointed features. This will add a 50/50 column split on the page between the bullet points and product image.');
   t('This will add a banner image in the header space - This is only for custom image per page. Please avoid duplication of images and use the block system if shared across multiple pages.');
   t('Thumbnail');
@@ -7039,6 +7852,8 @@ function field_instance_field_default_field_instances() {
   t('Title text is used in the tool tip when a user hovers their mouse over the image. Adding title text makes it easier to understand the context of an image and improves usability.');
   t('To conform to the following API Plan Types ');
   t('Token country');
+  t('Trainer');
+  t('Training Course');
   t('Translation Notes');
   t('Translation skills');
   t('Tweet link');
@@ -7057,6 +7872,8 @@ function field_instance_field_default_field_instances() {
   t('You must put on an industry tag to have the success stories show up in the Applications Feed');
   t('Zendesk Country');
   t('access workflow');
+  t('add brochure link use this and change the page number.  <a class="btn btn-primary white-text margin-top no-dash" href="/sites/avtreliability.com/files/download/LIT-UK-A-TRAINING-21.pdf#page=6" role="button" title="Download the Brochure"><i class="fa fa-file-pdf"></I> See the full course details</a>');
+  t('brochure link');
   t('deliverable');
   t('elq guid');
   t('external link');

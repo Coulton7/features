@@ -260,6 +260,15 @@ function user_permission_user_default_permissions() {
     'module' => 'httpbl',
   );
 
+  // Exported permission: 'administer CAPTCHA settings'.
+  $permissions['administer CAPTCHA settings'] = array(
+    'name' => 'administer CAPTCHA settings',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'captcha',
+  );
+
   // Exported permission: 'administer actions'.
   $permissions['administer actions'] = array(
     'name' => 'administer actions',
@@ -558,13 +567,6 @@ function user_permission_user_default_permissions() {
     'module' => 'oauth_common',
   );
 
-  // Exported permission: 'administer own redirects'.
-  $permissions['administer own redirects'] = array(
-    'name' => 'administer own redirects',
-    'roles' => array(),
-    'module' => 'redirect',
-  );
-
   // Exported permission: 'administer pathauto'.
   $permissions['administer pathauto'] = array(
     'name' => 'administer pathauto',
@@ -592,13 +594,13 @@ function user_permission_user_default_permissions() {
     'module' => 'quicktabs',
   );
 
-  // Exported permission: 'administer redirects'.
-  $permissions['administer redirects'] = array(
-    'name' => 'administer redirects',
+  // Exported permission: 'administer recaptcha'.
+  $permissions['administer recaptcha'] = array(
+    'name' => 'administer recaptcha',
     'roles' => array(
       'administrator' => 'administrator',
     ),
-    'module' => 'redirect',
+    'module' => 'recaptcha',
   );
 
   // Exported permission: 'administer rh_file'.
@@ -2512,6 +2514,15 @@ function user_permission_user_default_permissions() {
       'publisher user' => 'publisher user',
     ),
     'module' => 'workflow',
+  );
+
+  // Exported permission: 'skip CAPTCHA'.
+  $permissions['skip CAPTCHA'] = array(
+    'name' => 'skip CAPTCHA',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'captcha',
   );
 
   // Exported permission: 'skip comment approval'.
